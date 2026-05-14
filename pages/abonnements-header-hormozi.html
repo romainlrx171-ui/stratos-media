@@ -4,93 +4,103 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Hero abonnements Stratos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body { background: transparent; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
-    color: #ecf1f7;
-    line-height: 1.4;
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #212121;
+    line-height: 1.5;
   }
   .hero {
-    background:
-      radial-gradient(ellipse at top, rgba(34,197,94,0.15), transparent 55%),
-      linear-gradient(180deg, #0a0e13 0%, #0f1419 100%);
-    padding: 60px 24px 50px;
+    background: #F6F6F6;
+    padding: 56px 24px 44px;
     text-align: center;
     position: relative;
     overflow: hidden;
-    border-radius: 0 0 16px 16px;
   }
   .hero::before {
     content: '';
-    position: absolute; inset: 0;
-    background-image:
-      linear-gradient(rgba(34,197,94,0.035) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(34,197,94,0.035) 1px, transparent 1px);
-    background-size: 50px 50px;
-    mask-image: radial-gradient(ellipse at center, black, transparent 65%);
-    pointer-events: none;
+    position: absolute;
+    left: 50%; bottom: 0;
+    transform: translateX(-50%);
+    width: 240px; height: 4px;
+    background: #05E00B;
+    border-radius: 2px;
   }
-  .inner { position: relative; max-width: 720px; margin: 0 auto; }
+  .inner { position: relative; max-width: 760px; margin: 0 auto; }
 
   .eyebrow {
     display: inline-block;
-    padding: 4px 12px;
-    background: rgba(34,197,94,0.1);
-    border: 1px solid rgba(34,197,94,0.3);
+    padding: 5px 14px;
+    background: #000;
+    color: #05E00B;
     border-radius: 100px;
-    font-size: 11.5px;
-    color: #22c55e;
+    font-family: 'Oswald', sans-serif;
+    font-size: 12px;
     font-weight: 600;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 18px;
+    margin-bottom: 22px;
   }
 
   h1 {
-    font-size: clamp(32px, 5vw, 48px);
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    font-weight: 800;
-    margin-bottom: 14px;
-    color: #f2f6fa;
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(38px, 6vw, 60px);
+    line-height: 1;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+    color: #000;
+    text-transform: uppercase;
+    margin-bottom: 16px;
   }
-  h1 .green { color: #22c55e; }
+  h1 .green {
+    color: #05E00B;
+    -webkit-text-stroke: 1px #000;
+    text-shadow: 2px 2px 0 #000;
+  }
+  /* fallback for browsers without webkit-text-stroke */
+  @supports not (-webkit-text-stroke: 1px black) {
+    h1 .green { text-shadow: none; }
+  }
 
   p.sub {
-    font-size: clamp(15px, 1.8vw, 17px);
-    color: #9aa6b8;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: clamp(15px, 1.7vw, 17px);
+    color: #5d5d61;
     max-width: 540px;
-    margin: 0 auto 28px;
+    margin: 0 auto 30px;
   }
 
-  .arrow-cta {
-    margin-top: 6px;
-  }
+  .arrow-cta { margin-top: 4px; }
   .arrow-cta .label {
     display: inline-block;
+    font-family: 'Oswald', sans-serif;
     font-size: 13px;
-    color: #22c55e;
-    font-weight: 700;
-    letter-spacing: 0.05em;
+    color: #000;
+    font-weight: 600;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
   }
   .arrow-cta .down {
     display: block;
     margin: 0 auto;
-    width: 26px; height: 26px;
-    color: #22c55e;
-    animation: bounce 2s infinite;
+    width: 28px; height: 28px;
+    color: #05E00B;
+    animation: bounce 1.8s infinite;
   }
   @keyframes bounce {
-    0%,100% { transform: translateY(0); opacity: 0.7; }
-    50% { transform: translateY(6px); opacity: 1; }
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
   }
 
   @media (max-width: 600px) {
-    .hero { padding: 44px 18px 36px; }
+    .hero { padding: 40px 18px 32px; }
   }
 </style>
 </head>
@@ -99,9 +109,9 @@
 <section class="hero">
   <div class="inner">
 
-    <div class="eyebrow">Abonnements pilotes</div>
+    <div class="eyebrow">Abonnements Pilotes</div>
 
-    <h1>Choisis <span class="green">ta formule</span>.</h1>
+    <h1>Choisis <span class="green">ta formule</span></h1>
 
     <p class="sub">Engagement 6 mois minimum, puis résiliable à tout moment.</p>
 
