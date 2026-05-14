@@ -12,20 +12,25 @@
   html, body { background: transparent; }
   body {
     font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
-    color: #212121;
+    color: #fff;
   }
   .hero {
-    background: #F6F6F6;
-    padding: 60px 24px 50px;
+    position: relative;
+    padding: 70px 24px 56px;
     text-align: center;
+    overflow: hidden;
+    background:
+      linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.7)),
+      url('https://static.wixstatic.com/media/263755_f4f8ed7b7e634004895ff5f8447bf40f~mv2.jpg/v1/fill/w_1920,h_900,q_85/file.jpg') center/cover no-repeat,
+      #0a0a0a;
   }
-  .inner { max-width: 720px; margin: 0 auto; }
+  .inner { position: relative; max-width: 780px; margin: 0 auto; }
 
   .eyebrow {
     display: inline-block;
     padding: 5px 14px;
-    background: #000;
-    color: #05E00B;
+    background: #05E00B;
+    color: #000;
     font-family: 'Oswald', sans-serif;
     font-size: 12px;
     font-weight: 600;
@@ -36,10 +41,10 @@
 
   h1 {
     font-family: 'Oswald', sans-serif;
-    font-size: clamp(36px, 5.5vw, 56px);
+    font-size: clamp(40px, 6vw, 64px);
     line-height: 1;
     font-weight: 600;
-    color: #212121;
+    color: #fff;
     text-transform: uppercase;
     margin-bottom: 16px;
   }
@@ -48,15 +53,15 @@
   p.sub {
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
-    font-size: clamp(15px, 1.7vw, 17px);
-    color: #646464;
-    max-width: 540px;
+    font-size: clamp(16px, 1.8vw, 19px);
+    color: #e2e2e2;
+    max-width: 560px;
     margin: 0 auto;
     line-height: 1.5;
   }
 
   @media (max-width: 600px) {
-    .hero { padding: 44px 18px 36px; }
+    .hero { padding: 50px 18px 40px; }
   }
 </style>
 </head>
@@ -66,7 +71,7 @@
   <div class="inner">
     <div class="eyebrow">Abonnements Pilotes</div>
     <h1>Choisis <span class="green">ta formule</span></h1>
-    <p class="sub">Un abonnement pour piloter chaque semaine, débriefer ta technique avec un pilote pro, et transformer la curiosité en vraie progression.</p>
+    <p class="sub">Roule régulièrement. Progresse vraiment.</p>
   </div>
 </section>
 
