@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Témoignages abonnés Stratos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: transparent; }
+  body {
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #212121;
+    background: #F6F6F6;
+  }
+  .wrap {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 50px 24px;
+  }
+  .head { text-align: center; margin-bottom: 36px; }
+  .eyebrow {
+    display: inline-block;
+    padding: 5px 14px;
+    background: #000;
+    color: #05E00B;
+    font-family: 'Oswald', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(28px, 4vw, 38px);
+    line-height: 1;
+    font-weight: 600;
+    color: #212121;
+    text-transform: uppercase;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+  .card {
+    background: #fff;
+    border: 1px solid #e2e2e2;
+    border-radius: 10px;
+    padding: 24px 22px;
+    display: flex;
+    flex-direction: column;
+  }
+  .quote {
+    font-family: 'Roboto', sans-serif;
+    font-size: 15.5px;
+    color: #212121;
+    line-height: 1.55;
+    margin-bottom: 18px;
+    flex: 1;
+  }
+  .quote::before {
+    content: '"';
+    font-family: 'Oswald', sans-serif;
+    font-size: 48px;
+    color: #05E00B;
+    line-height: 0.5;
+    margin-right: 4px;
+    vertical-align: -10px;
+  }
+  .author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 14px;
+    border-top: 1px solid #f0f0f0;
+  }
+  .avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #212121, #525150);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #05E00B;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 17px;
+    flex-shrink: 0;
+  }
+  .author .info { line-height: 1.3; }
+  .author .name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .author .meta {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    color: #8F8F8F;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="head">
+    <div class="eyebrow">Ils nous font confiance</div>
+    <h2>Ce qu'ils en disent</h2>
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+      <p class="quote">Au bout de 3 mois, j'ai gagné 2 secondes au tour sur Barcelone. Les Masterclass de Romain font la différence — il voit ce que je ne vois pas.</p>
+      <div class="author">
+        <div class="avatar">MC</div>
+        <div class="info">
+          <div class="name">Marc C.</div>
+          <div class="meta">Pilote Régulier · 4 mois</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <p class="quote">L'abonnement Light est parfait pour mon rythme. 5h par mois, plus la Masterclass tous les 3 mois — exactement le bon dosage pour progresser sans y passer mes soirées.</p>
+      <div class="author">
+        <div class="avatar">JD</div>
+        <div class="info">
+          <div class="name">Julien D.</div>
+          <div class="meta">Pilote Light · 6 mois</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <p class="quote">Avant je faisais 1 session par mois au tarif normal. Maintenant 10h avec Pilote Régulier — j'économise et je progresse vraiment. C'est devenu mon rituel du jeudi soir.</p>
+      <div class="author">
+        <div class="avatar">SR</div>
+        <div class="info">
+          <div class="name">Sébastien R.</div>
+          <div class="meta">Pilote Régulier · 8 mois</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  function postHeight() {
+    if (window.parent !== window) {
+      window.parent.postMessage({ type: 'stratos-iframe-height', height: document.documentElement.scrollHeight }, '*');
+    }
+  }
+  window.addEventListener('load', postHeight);
+  window.addEventListener('resize', postHeight);
+  new ResizeObserver(postHeight).observe(document.documentElement);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Alternative découverte</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: transparent; }
+  body {
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #212121;
+    background: #F6F6F6;
+  }
+  .wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 40px 24px;
+  }
+  .card {
+    background: #fff;
+    border: 1px solid #e2e2e2;
+    border-left: 4px solid #05E00B;
+    border-radius: 8px;
+    padding: 24px 28px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .text { flex: 1; min-width: 240px; }
+  .label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 12px;
+    color: #05E00B;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .heading {
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #212121;
+    margin-bottom: 6px;
+  }
+  .desc {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 14.5px;
+    color: #525150;
+    line-height: 1.5;
+  }
+  .btn {
+    flex-shrink: 0;
+    display: inline-block;
+    padding: 13px 22px;
+    background: #fff;
+    border: 1.5px solid #212121;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #212121;
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+  }
+  .btn:hover {
+    background: #05E00B;
+    color: #000;
+    border-color: #05E00B;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="card">
+    <div class="text">
+      <div class="label">Pas encore prêt ?</div>
+      <div class="heading">Commence par une découverte</div>
+      <div class="desc">Une session Pilotage Découverte à 30€ pour tester le centre, l'équipement, et voir si c'est fait pour toi avant de t'engager.</div>
+    </div>
+    <a href="https://www.stratos-academie.com/offres-particuliers" target="_top" class="btn">Voir les sessions</a>
+  </div>
+</div>
+
+<script>
+  function postHeight() {
+    if (window.parent !== window) {
+      window.parent.postMessage({ type: 'stratos-iframe-height', height: document.documentElement.scrollHeight }, '*');
+    }
+  }
+  window.addEventListener('load', postHeight);
+  window.addEventListener('resize', postHeight);
+  new ResizeObserver(postHeight).observe(document.documentElement);
+</script>
+
+</body>
+</html>
