@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mon Solde — Stratos Académie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: transparent; }
+  body {
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #212121;
+    background: #F6F6F6;
+  }
+
+  .page {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 50px 24px 60px;
+  }
+
+  /* ===== HEADER ===== */
+  .header {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+  .eyebrow {
+    display: inline-block;
+    padding: 5px 14px;
+    background: #000;
+    color: #05E00B;
+    font-family: 'Oswald', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .header h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(32px, 4.5vw, 48px);
+    line-height: 1;
+    font-weight: 600;
+    color: #212121;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .header h1 .green { color: #05E00B; }
+  .header .greeting {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    color: #646464;
+  }
+
+  /* ===== MAIN CARD ===== */
+  .balance-card {
+    background: #fff;
+    border: 1px solid #e2e2e2;
+    border-radius: 12px;
+    padding: 32px 32px 28px;
+    margin-bottom: 24px;
+  }
+
+  .plan-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #f0f0f0;
+    margin-bottom: 28px;
+  }
+  .plan-label {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    color: #8F8F8F;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  .plan-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 26px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #212121;
+  }
+  .plan-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    background: rgba(5,224,11,0.1);
+    border: 1px solid rgba(5,224,11,0.4);
+    color: #008250;
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 20px;
+  }
+  .plan-status::before {
+    content: '';
+    width: 7px; height: 7px;
+    background: #05E00B;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(5,224,11,0.2);
+  }
+
+  /* ===== SESSIONS BLOCK ===== */
+  .balance-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 32px;
+  }
+  @media (max-width: 600px) {
+    .balance-grid { grid-template-columns: 1fr; gap: 28px; }
+  }
+
+  .balance-main .row-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 12px;
+  }
+  .row-head .title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #212121;
+    font-weight: 600;
+  }
+  .row-head .count {
+    font-family: 'Oswald', sans-serif;
+    font-size: 32px;
+    color: #212121;
+    font-weight: 600;
+  }
+  .row-head .count .used { color: #8F8F8F; }
+  .row-head .count .slash { color: #c7c7c7; margin: 0 2px; }
+
+  .progress {
+    height: 14px;
+    background: #f0f0f0;
+    border-radius: 100px;
+    overflow: hidden;
+    margin-bottom: 8px;
+  }
+  .progress .fill {
+    height: 100%;
+    width: 60%; /* mock: 6/10 */
+    background: linear-gradient(90deg, #05E00B, #008250);
+    border-radius: 100px;
+    transition: width 0.6s ease;
+  }
+  .progress-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #8F8F8F;
+    font-family: 'Roboto', sans-serif;
+  }
+  .progress-meta strong { color: #05E00B; font-weight: 600; }
+
+  /* ===== SIDE STATS ===== */
+  .side-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .stat {
+    background: #F6F6F6;
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .stat .label {
+    font-family: 'Roboto', sans-serif;
+    font-size: 11.5px;
+    color: #8F8F8F;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 4px;
+    font-weight: 500;
+  }
+  .stat .value {
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    color: #212121;
+    font-weight: 600;
+  }
+  .stat .value.green { color: #05E00B; }
+  .stat .value.small {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+  }
+
+  /* ===== CTAs ===== */
+  .actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 24px;
+  }
+  @media (max-width: 600px) {
+    .actions { grid-template-columns: 1fr; }
+  }
+  .btn {
+    display: block;
+    text-align: center;
+    padding: 14px 20px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.15s ease;
+    cursor: pointer;
+    border: none;
+  }
+  .btn.primary {
+    background: #05E00B;
+    color: #000;
+  }
+  .btn.primary:hover { background: #04c809; }
+  .btn.secondary {
+    background: #fff;
+    color: #212121;
+    border: 1.5px solid #212121;
+  }
+  .btn.secondary:hover { background: #212121; color: #fff; }
+
+  /* ===== INFO FOOTER ===== */
+  .info-footer {
+    background: #fff;
+    border: 1px solid #e2e2e2;
+    border-radius: 12px;
+    padding: 20px 24px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #646464;
+    line-height: 1.6;
+  }
+  .info-footer ul { list-style: none; }
+  .info-footer li {
+    padding: 4px 0;
+    display: flex;
+    gap: 10px;
+  }
+  .info-footer li::before {
+    content: '·';
+    color: #05E00B;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1;
+  }
+  .info-footer a {
+    color: #008250;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .info-footer a:hover { text-decoration: underline; }
+
+  /* ===== NO-PLAN STATE (alternative view) ===== */
+  .no-plan {
+    background: #fff;
+    border: 1px solid #e2e2e2;
+    border-radius: 12px;
+    padding: 48px 32px;
+    text-align: center;
+  }
+  .no-plan h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .no-plan p {
+    color: #646464;
+    margin-bottom: 24px;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ===== HEADER ===== -->
+  <div class="header">
+    <div class="eyebrow">Mon Espace Pilote</div>
+    <h1>Ton <span class="green">solde</span></h1>
+    <p class="greeting">Salut Romain · Ton compte au 14 mai 2026</p>
+  </div>
+
+  <!-- ===== BALANCE CARD ===== -->
+  <div class="balance-card">
+
+    <!-- Plan info -->
+    <div class="plan-row">
+      <div>
+        <div class="plan-label">Abonnement en cours</div>
+        <div class="plan-name">Pilote Régulier</div>
+      </div>
+      <div class="plan-status">Actif</div>
+    </div>
+
+    <!-- Sessions + side stats -->
+    <div class="balance-grid">
+
+      <div class="balance-main">
+        <div class="row-head">
+          <span class="title">Sessions ce mois</span>
+          <span class="count"><span class="used">4</span><span class="slash">/</span>10</span>
+        </div>
+        <div class="progress">
+          <div class="fill"></div>
+        </div>
+        <div class="progress-meta">
+          <span><strong>6 sessions</strong> restantes</span>
+          <span>Cycle jusqu'au 15 juin</span>
+        </div>
+      </div>
+
+      <div class="side-stats">
+        <div class="stat">
+          <div class="label">Masterclass dispo</div>
+          <div class="value green">1 / 2</div>
+        </div>
+        <div class="stat">
+          <div class="label">Prochaine recharge</div>
+          <div class="value small">15 juin 2026</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CTAs -->
+    <div class="actions">
+      <a href="https://www.stratos-academie.com/services" target="_top" class="btn primary">Réserver une session</a>
+      <a href="https://www.stratos-academie.com/account/my-account" target="_top" class="btn secondary">Mes réservations</a>
+    </div>
+
+  </div>
+
+  <!-- ===== INFO FOOTER ===== -->
+  <div class="info-footer">
+    <ul>
+      <li>Les sessions non utilisées sont perdues à la fin du cycle (15 juin).</li>
+      <li>Annulation > 24h avant = session recréditée automatiquement.</li>
+      <li>Tu veux gérer ton abonnement (résilier, changer de formule) ? <a href="/account/subscriptions">Mes abonnements</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<script>
+  function postHeight() {
+    if (window.parent !== window) {
+      window.parent.postMessage({ type: 'stratos-iframe-height', height: document.documentElement.scrollHeight }, '*');
+    }
+  }
+  window.addEventListener('load', postHeight);
+  window.addEventListener('resize', postHeight);
+  new ResizeObserver(postHeight).observe(document.documentElement);
+</script>
+
+</body>
+</html>
