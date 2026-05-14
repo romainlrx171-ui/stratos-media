@@ -12,8 +12,8 @@
   html, body { background: transparent; }
   body {
     font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
-    color: #212121;
-    background: #ffffff;
+    color: #ecf1f7;
+    background: #0a0a0a;
   }
 
   /* ===== FAQ ===== */
@@ -29,8 +29,8 @@
   .eyebrow {
     display: inline-block;
     padding: 5px 14px;
-    background: #000;
-    color: #05E00B;
+    background: #05E00B;
+    color: #000;
     font-family: 'Oswald', sans-serif;
     font-size: 12px;
     font-weight: 600;
@@ -43,18 +43,21 @@
     font-size: clamp(28px, 4vw, 38px);
     line-height: 1;
     font-weight: 600;
-    color: #212121;
+    color: #ffffff;
     text-transform: uppercase;
   }
   details {
-    background: #F6F6F6;
-    border: 1px solid #e8e6e6;
+    background: #151414;
+    border: 1px solid #2a2a2a;
     border-radius: 8px;
     margin-bottom: 10px;
     overflow: hidden;
-    transition: border-color 0.2s ease;
+    transition: all 0.2s ease;
   }
-  details[open] { border-color: #05E00B; background: #ffffff; }
+  details[open] {
+    border-color: #05E00B;
+    background: #1a1a1a;
+  }
   details summary {
     list-style: none;
     padding: 18px 20px;
@@ -68,7 +71,7 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.02em;
-    color: #212121;
+    color: #ffffff;
     user-select: none;
   }
   details summary::-webkit-details-marker { display: none; }
@@ -86,10 +89,10 @@
     padding: 0 20px 20px;
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
-    color: #525150;
+    color: #c7c7c7;
     line-height: 1.6;
   }
-  details .answer strong { color: #212121; font-weight: 500; }
+  details .answer strong { color: #ffffff; font-weight: 500; }
 
   /* ===== CONTACT ===== */
   .contact-section {
@@ -103,7 +106,7 @@
     font-size: clamp(22px, 2.8vw, 28px);
     line-height: 1.1;
     font-weight: 600;
-    color: #212121;
+    color: #ffffff;
     text-transform: uppercase;
     margin-bottom: 8px;
   }
@@ -111,7 +114,7 @@
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
     font-size: 15px;
-    color: #646464;
+    color: #c7c7c7;
     margin-bottom: 22px;
   }
   .channels {
@@ -125,11 +128,11 @@
     align-items: center;
     gap: 10px;
     padding: 12px 22px;
-    background: #ffffff;
-    border: 1.5px solid #212121;
+    background: transparent;
+    border: 1.5px solid #ffffff;
     border-radius: 6px;
     text-decoration: none;
-    color: #212121;
+    color: #ffffff;
     font-family: 'Oswald', sans-serif;
     font-size: 14px;
     font-weight: 600;
@@ -138,8 +141,8 @@
     transition: all 0.15s ease;
   }
   .btn:hover {
-    background: #212121;
-    color: #ffffff;
+    background: #ffffff;
+    color: #000;
   }
   .btn.email:hover {
     background: #05E00B;
