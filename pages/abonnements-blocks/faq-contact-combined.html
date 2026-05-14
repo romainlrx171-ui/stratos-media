@@ -22,6 +22,15 @@
     margin: 0 auto;
     padding: 50px 24px 30px;
   }
+  @media (max-width: 600px) {
+    .faq-section { padding: 40px 18px 24px; }
+    details summary { padding: 16px 16px; font-size: 14px; }
+    details .answer { padding: 0 16px 16px; font-size: 14px; }
+    h2 { font-size: clamp(24px, 7vw, 32px); }
+  }
+  @media (max-width: 360px) {
+    details summary { font-size: 13.5px; }
+  }
   .head {
     text-align: center;
     margin-bottom: 32px;
@@ -101,6 +110,10 @@
     padding: 30px 24px 50px;
     text-align: center;
   }
+  @media (max-width: 600px) {
+    .contact-section { padding: 20px 18px 40px; }
+    .contact-section h3 { font-size: clamp(20px, 5.5vw, 24px); }
+  }
   .contact-section h3 {
     font-family: 'Oswald', sans-serif;
     font-size: clamp(22px, 2.8vw, 28px);
@@ -122,6 +135,10 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 12px;
+  }
+  @media (max-width: 600px) {
+    .channels { flex-direction: column; align-items: stretch; }
+    .channels .btn { justify-content: center; }
   }
   .btn {
     display: inline-flex;
