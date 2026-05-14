@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hero abonnements Stratos</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: transparent; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
+    color: #ecf1f7;
+    line-height: 1.5;
+    padding: 0;
+  }
+  .hormozi-block {
+    background:
+      radial-gradient(ellipse at top, rgba(34,197,94,0.18), transparent 55%),
+      radial-gradient(ellipse at bottom right, rgba(245,158,11,0.08), transparent 55%),
+      linear-gradient(180deg, #0a0e13 0%, #0f1419 100%);
+    padding: 64px 24px 72px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0 0 20px 20px;
+  }
+  .hormozi-block::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(34,197,94,0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(34,197,94,0.035) 1px, transparent 1px);
+    background-size: 50px 50px;
+    mask-image: radial-gradient(ellipse at center, black, transparent 65%);
+    pointer-events: none;
+  }
+  .inner { position: relative; max-width: 920px; margin: 0 auto; }
+
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 14px;
+    background: rgba(34,197,94,0.1);
+    border: 1px solid rgba(34,197,94,0.3);
+    border-radius: 100px;
+    font-size: 12.5px;
+    color: #22c55e;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 22px;
+  }
+  .eyebrow::before {
+    content: ''; width: 6px; height: 6px; background: #22c55e; border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(34,197,94,0.25);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.5} }
+
+  h1.hook {
+    font-size: clamp(32px, 5vw, 54px);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    font-weight: 800;
+    margin-bottom: 16px;
+    color: #f2f6fa;
+  }
+  h1.hook .green { color: #22c55e; }
+  h1.hook .strike { text-decoration: line-through; text-decoration-color: rgba(239,68,68,0.6); text-decoration-thickness: 3px; color: #8b97a8; }
+
+  p.subhook {
+    font-size: clamp(16px, 2vw, 19px);
+    color: #b6c0d0;
+    max-width: 700px;
+    margin: 0 auto 36px;
+    line-height: 1.55;
+  }
+  p.subhook strong { color: #ecf1f7; font-weight: 600; }
+
+  /* ===== VALUE STACK ===== */
+  .stack {
+    margin: 36px auto;
+    max-width: 640px;
+    background: rgba(22,28,37,0.7);
+    border: 1px solid #232b38;
+    border-radius: 16px;
+    padding: 28px 30px;
+    text-align: left;
+    backdrop-filter: blur(8px);
+  }
+  .stack-title {
+    font-size: 13px;
+    color: #8b97a8;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    margin-bottom: 18px;
+    text-align: center;
+  }
+  .stack ul { list-style: none; }
+  .stack li {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 10px 0;
+    border-bottom: 1px dashed #232b38;
+    font-size: 15.5px;
+    gap: 16px;
+  }
+  .stack li:last-child { border-bottom: none; }
+  .stack li .label { color: #ecf1f7; }
+  .stack li .label::before {
+    content: '✓';
+    color: #22c55e;
+    font-weight: 800;
+    margin-right: 10px;
+  }
+  .stack li .val {
+    color: #8b97a8;
+    font-family: "Cascadia Code", Consolas, monospace;
+    font-size: 13.5px;
+    white-space: nowrap;
+  }
+
+  .stack-total {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid #2a3340;
+    text-align: center;
+  }
+  .stack-total .line {
+    display: flex; justify-content: space-between;
+    padding: 4px 0;
+    font-size: 14.5px;
+    color: #8b97a8;
+  }
+  .stack-total .line.crossed { color: #5d6878; text-decoration: line-through; }
+  .stack-total .line.you {
+    color: #22c55e;
+    font-size: 17px;
+    font-weight: 700;
+    margin-top: 6px;
+  }
+  .stack-total .save {
+    margin-top: 14px;
+    padding: 10px 14px;
+    background: rgba(34,197,94,0.12);
+    border: 1px solid rgba(34,197,94,0.35);
+    border-radius: 10px;
+    color: #22c55e;
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  /* ===== GUARANTEE ===== */
+  .guarantee {
+    margin: 36px auto 20px;
+    max-width: 580px;
+    padding: 18px 22px;
+    background: linear-gradient(135deg, rgba(245,158,11,0.08), rgba(245,158,11,0.02));
+    border: 1px solid rgba(245,158,11,0.3);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-align: left;
+  }
+  .guarantee .icon {
+    flex-shrink: 0;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: rgba(245,158,11,0.15);
+    border: 1px solid rgba(245,158,11,0.4);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+  }
+  .guarantee .text { font-size: 14.5px; color: #d4ddeb; line-height: 1.5; }
+  .guarantee .text strong { color: #f5d28a; }
+
+  /* ===== SCARCITY ===== */
+  .scarcity {
+    font-size: 13px;
+    color: #8b97a8;
+    margin: 16px auto 26px;
+    max-width: 580px;
+  }
+  .scarcity .dot {
+    display: inline-block;
+    width: 7px; height: 7px;
+    background: #ef4444;
+    border-radius: 50%;
+    margin-right: 6px;
+    box-shadow: 0 0 0 4px rgba(239,68,68,0.15);
+    vertical-align: middle;
+    animation: pulse 2s infinite;
+  }
+
+  /* ===== ARROW DOWN ===== */
+  .arrow-cta {
+    margin-top: 26px;
+    text-align: center;
+  }
+  .arrow-cta .label {
+    display: inline-block;
+    font-size: 15px;
+    color: #22c55e;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    margin-bottom: 12px;
+  }
+  .arrow-cta .down {
+    display: block;
+    margin: 0 auto;
+    width: 28px; height: 28px;
+    color: #22c55e;
+    animation: bounce 2s infinite;
+  }
+  @keyframes bounce {
+    0%,100% { transform: translateY(0); opacity: 0.7; }
+    50% { transform: translateY(8px); opacity: 1; }
+  }
+
+  /* ===== MOBILE ===== */
+  @media (max-width: 600px) {
+    .hormozi-block { padding: 48px 18px 56px; }
+    .stack { padding: 22px 18px; }
+    .stack li { flex-direction: column; gap: 4px; align-items: flex-start; }
+    .stack li .val { font-size: 12.5px; }
+    .guarantee { flex-direction: column; text-align: center; gap: 10px; }
+    .guarantee .icon { margin: 0 auto; }
+  }
+</style>
+</head>
+<body>
+
+<section class="hormozi-block">
+  <div class="inner">
+
+    <div class="eyebrow">Pour pilotes qui veulent progresser pour de vrai</div>
+
+    <h1 class="hook">
+      Roule chaque semaine.<br>
+      <span class="green">Progresse vraiment.</span><br>
+      <span style="font-size:0.62em;color:#b6c0d0;font-weight:600;">À partir de <span class="strike">55€</span> <span style="color:#22c55e">29€</span> l'heure.</span>
+    </h1>
+
+    <p class="subhook">
+      Un abonnement mensuel qui transforme la curiosité en performance. <strong>Sim pro, coaching à la session, Masterclass mensuelles avec Romain Leroux</strong> — pilote ELMS Ferrari GT3, Kessel Racing. Sans avoir à payer une journée circuit à 800€.
+    </p>
+
+    <!-- ===== STACK ===== -->
+    <div class="stack">
+      <div class="stack-title">Ce que tu obtiens chaque mois</div>
+      <ul>
+        <li>
+          <span class="label">Sessions de simulateur pro (Pilotage Solo 1h)</span>
+          <span class="val">275 - 550€</span>
+        </li>
+        <li>
+          <span class="label">Masterclass présentiel avec Romain Leroux</span>
+          <span class="val">inestimable</span>
+        </li>
+        <li>
+          <span class="label">Coaching à la session par un pilote pro</span>
+          <span class="val">inclus</span>
+        </li>
+        <li>
+          <span class="label">Réservation prioritaire sur les créneaux populaires</span>
+          <span class="val">inclus</span>
+        </li>
+        <li>
+          <span class="label">Annulation 24h = session recréditée</span>
+          <span class="val">inclus</span>
+        </li>
+      </ul>
+
+      <div class="stack-total">
+        <div class="line crossed">
+          <span>Valeur normale (au tarif unitaire)</span>
+          <span>550€+/mois</span>
+        </div>
+        <div class="line you">
+          <span>Tu paies à partir de</span>
+          <span>145€/mois</span>
+        </div>
+        <div class="save">→ Tu économies jusqu'à 405€ par mois</div>
+      </div>
+    </div>
+
+    <!-- ===== GUARANTEE ===== -->
+    <div class="guarantee">
+      <div class="icon">🛡️</div>
+      <div class="text">
+        <strong>Engagement 6 mois minimum</strong> pour que ça paye vraiment (au bout de 6 mois tu sens la différence). Au-delà : résiliable à tout moment, sans question. Tu changes de formule entre Light et Régulier quand tu veux à la fin du cycle d'engagement.
+      </div>
+    </div>
+
+    <!-- ===== SCARCITY ===== -->
+    <div class="scarcity">
+      <span class="dot"></span>
+      Places limitées par formule — on garde des créneaux pour les sessions à l'unité. Quelques abonnés ajoutés chaque mois.
+    </div>
+
+    <!-- ===== ARROW ===== -->
+    <div class="arrow-cta">
+      <span class="label">CHOISIS TA FORMULE CI-DESSOUS</span>
+      <svg class="down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  // Auto-resize when inside Wix iframe
+  function postHeight() {
+    if (window.parent !== window) {
+      window.parent.postMessage({ type: 'stratos-iframe-height', height: document.documentElement.scrollHeight }, '*');
+    }
+  }
+  window.addEventListener('load', postHeight);
+  window.addEventListener('resize', postHeight);
+  new ResizeObserver(postHeight).observe(document.documentElement);
+</script>
+
+</body>
+</html>
