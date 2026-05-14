@@ -19,6 +19,10 @@
     padding: 70px 24px 56px;
     text-align: center;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 360px;
     background:
       linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.7)),
       url('https://romainlrx171-ui.github.io/stratos-media/images/hero-stratos-20.jpg') center/cover no-repeat,
@@ -61,15 +65,16 @@
   }
 
   @media (max-width: 768px) {
-    .hero { padding: 60px 20px 48px; }
+    .hero { padding: 70px 20px 56px; min-height: 420px; }
   }
   @media (max-width: 480px) {
-    .hero { padding: 44px 16px 36px; }
+    .hero { padding: 60px 18px 48px; min-height: 480px; }
     .eyebrow { font-size: 11px; padding: 4px 11px; margin-bottom: 16px; }
     h1 { font-size: clamp(28px, 9vw, 40px); margin-bottom: 12px; }
     p.sub { font-size: 15px; }
   }
   @media (max-width: 360px) {
+    .hero { min-height: 460px; }
     h1 { font-size: 26px; }
     p.sub { font-size: 14px; }
   }
