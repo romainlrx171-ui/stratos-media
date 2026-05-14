@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Abonnements — Stratos Académie</title>
+<style>
+  :root {
+    --bg: #0a0e13;
+    --bg-2: #11161d;
+    --card: #161c25;
+    --card-hover: #1c232e;
+    --border: #232b38;
+    --border-strong: #2f3a4a;
+    --text: #ecf1f7;
+    --text-dim: #9aa6b8;
+    --text-muted: #5d6878;
+    --accent: #22c55e;
+    --accent-dim: #16a34a;
+    --accent-glow: rgba(34,197,94,0.15);
+    --warn: #f59e0b;
+    --premium: #fbbf24;
+    --gradient: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* === HERO === */
+  .hero {
+    position: relative;
+    padding: 100px 24px 80px;
+    text-align: center;
+    background:
+      radial-gradient(ellipse at top, var(--accent-glow), transparent 60%),
+      radial-gradient(ellipse at bottom right, rgba(245,158,11,0.08), transparent 60%),
+      var(--bg);
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(34,197,94,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(34,197,94,0.04) 1px, transparent 1px);
+    background-size: 50px 50px;
+    mask-image: radial-gradient(ellipse at center, black, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner { position: relative; max-width: 900px; margin: 0 auto; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 14px;
+    background: rgba(34,197,94,0.1);
+    border: 1px solid rgba(34,197,94,0.25);
+    border-radius: 100px;
+    font-size: 13px;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 24px;
+  }
+  .hero-badge::before {
+    content: ''; width: 6px; height: 6px; background: var(--accent); border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(34,197,94,0.2);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.5} }
+  .hero h1 {
+    font-size: clamp(36px, 5vw, 58px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  .hero h1 .accent { color: var(--accent); }
+  .hero .subtitle {
+    font-size: 19px;
+    color: var(--text-dim);
+    max-width: 640px;
+    margin: 0 auto 36px;
+  }
+  .hero-stats {
+    display: flex; justify-content: center; gap: 48px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    padding-top: 36px;
+    border-top: 1px solid var(--border);
+  }
+  .hero-stats > div { text-align: center; }
+  .hero-stats .stat-num { font-size: 32px; font-weight: 700; color: var(--accent); }
+  .hero-stats .stat-label { font-size: 13px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+
+  /* === PLANS === */
+  .plans-section {
+    padding: 80px 24px;
+    background: var(--bg);
+  }
+  .plans-inner { max-width: 1100px; margin: 0 auto; }
+  .section-eyebrow {
+    text-align: center;
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+  }
+  .section-title {
+    text-align: center;
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 12px;
+  }
+  .section-subtitle {
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 17px;
+    max-width: 560px;
+    margin: 0 auto 50px;
+  }
+
+  .plans-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+    align-items: stretch;
+  }
+
+  .plan-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 36px 32px;
+    position: relative;
+    transition: all 0.25s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .plan-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--border-strong);
+  }
+  .plan-card.featured {
+    border-color: var(--accent);
+    background: linear-gradient(180deg, rgba(34,197,94,0.04), var(--card) 30%);
+    box-shadow: 0 0 0 1px var(--accent), 0 20px 60px -20px var(--accent-glow);
+  }
+  .plan-card.featured:hover {
+    box-shadow: 0 0 0 1px var(--accent), 0 30px 70px -20px rgba(34,197,94,0.3);
+  }
+
+  .featured-tag {
+    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+    padding: 6px 16px;
+    background: var(--gradient);
+    color: #052e16;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+
+  .plan-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+  }
+  .plan-tagline {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    letter-spacing: -0.01em;
+  }
+  .plan-price {
+    display: flex; align-items: baseline; gap: 6px;
+    margin-bottom: 6px;
+  }
+  .plan-price .amount { font-size: 56px; font-weight: 800; letter-spacing: -0.03em; }
+  .plan-price .currency { font-size: 28px; font-weight: 700; color: var(--text-dim); }
+  .plan-price .period { font-size: 16px; color: var(--text-dim); margin-left: 4px; }
+  .plan-meta {
+    color: var(--text-muted);
+    font-size: 13px;
+    margin-bottom: 28px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .plan-perks {
+    list-style: none;
+    margin-bottom: 32px;
+    flex: 1;
+  }
+  .plan-perks li {
+    display: flex; gap: 12px;
+    padding: 10px 0;
+    font-size: 15px;
+    color: var(--text);
+  }
+  .plan-perks li::before {
+    content: '';
+    flex-shrink: 0;
+    width: 20px; height: 20px;
+    margin-top: 2px;
+    background: var(--accent);
+    mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>") center/contain no-repeat;
+  }
+  .plan-perks li strong { color: var(--text); font-weight: 600; }
+
+  .plan-cta {
+    display: block;
+    width: 100%;
+    padding: 16px 24px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+  }
+  .plan-cta.primary {
+    background: var(--gradient);
+    color: #052e16;
+  }
+  .plan-cta.primary:hover { transform: translateY(-1px); box-shadow: 0 10px 30px -10px var(--accent); }
+  .plan-cta.secondary {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border-strong);
+  }
+  .plan-cta.secondary:hover { background: var(--card-hover); border-color: var(--accent); color: var(--accent); }
+
+  .plan-footnote {
+    text-align: center;
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  /* === MASTERCLASS BAND === */
+  .mc-band {
+    margin: 80px 24px;
+    max-width: 1100px;
+    margin-left: auto; margin-right: auto;
+    background:
+      linear-gradient(135deg, rgba(34,197,94,0.08), transparent),
+      var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+  .mc-band .text { padding: 56px 48px; }
+  .mc-band .visual {
+    aspect-ratio: 1/1;
+    background:
+      radial-gradient(circle at 40% 60%, rgba(34,197,94,0.2), transparent 50%),
+      linear-gradient(135deg, #1a2230, #0d1117);
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+    border-left: 1px solid var(--border);
+  }
+  .mc-band .visual::after {
+    content: 'ROMAIN LEROUX';
+    position: absolute;
+    bottom: 24px; right: 24px;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+  .mc-band .pic-placeholder {
+    width: 60%; aspect-ratio: 1/1;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2a3441, #1a2230);
+    border: 2px solid var(--accent);
+    box-shadow: 0 0 60px var(--accent-glow);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 64px;
+    font-weight: 800;
+    color: var(--accent);
+  }
+  .mc-band h2 {
+    font-size: 32px;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-bottom: 16px;
+  }
+  .mc-band p {
+    color: var(--text-dim);
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+  .mc-band .quote-style {
+    font-style: italic;
+    color: var(--text-dim);
+    padding-left: 16px;
+    border-left: 2px solid var(--accent);
+    margin-top: 20px;
+    font-size: 15px;
+  }
+  @media(max-width: 800px) {
+    .mc-band { grid-template-columns: 1fr; }
+    .mc-band .visual { border-left: 0; border-top: 1px solid var(--border); }
+  }
+
+  /* === COMMENT ÇA MARCHE === */
+  .how-it-works {
+    padding: 80px 24px;
+    background: var(--bg-2);
+  }
+  .how-grid {
+    max-width: 1000px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+    margin-top: 50px;
+  }
+  .how-step {
+    padding: 32px 28px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    position: relative;
+  }
+  .how-step .num {
+    position: absolute; top: -16px; left: 28px;
+    width: 36px; height: 36px;
+    background: var(--gradient);
+    color: #052e16;
+    font-weight: 800;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .how-step h3 {
+    margin-top: 8px;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+  .how-step p { color: var(--text-dim); font-size: 14px; }
+
+  /* === FAQ === */
+  .faq-section {
+    padding: 80px 24px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  details {
+    border-bottom: 1px solid var(--border);
+    padding: 24px 0;
+    cursor: pointer;
+  }
+  details summary {
+    list-style: none;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 17px;
+    font-weight: 500;
+  }
+  details summary::-webkit-details-marker { display: none; }
+  details summary::after {
+    content: '+';
+    font-size: 24px;
+    color: var(--accent);
+    transition: transform 0.2s;
+  }
+  details[open] summary::after { transform: rotate(45deg); }
+  details p {
+    margin-top: 16px;
+    color: var(--text-dim);
+    font-size: 15px;
+  }
+
+  /* === FOOTER CTA === */
+  .final-cta {
+    text-align: center;
+    padding: 100px 24px;
+    background:
+      radial-gradient(ellipse at center, var(--accent-glow), transparent 60%),
+      var(--bg);
+  }
+  .final-cta h2 {
+    font-size: clamp(28px, 4vw, 44px);
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+  .final-cta p {
+    color: var(--text-dim);
+    font-size: 17px;
+    max-width: 540px;
+    margin: 0 auto 32px;
+  }
+  .final-cta .btn-primary {
+    display: inline-block;
+    padding: 18px 36px;
+    background: var(--gradient);
+    color: #052e16;
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: all 0.2s;
+  }
+  .final-cta .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 20px 50px -10px var(--accent); }
+
+  footer {
+    padding: 32px 24px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 13px;
+  }
+
+  /* Mockup banner */
+  .mockup-banner {
+    background: var(--warn);
+    color: #1a1a1a;
+    text-align: center;
+    padding: 10px 16px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+
+<script>
+  // When inside an iframe, send height to parent so Wix can auto-resize the embed.
+  // Parent (Wix Velo) listens to "stratos-iframe-height" messages.
+  function postHeight() {
+    if (window.parent !== window) {
+      const h = document.documentElement.scrollHeight;
+      window.parent.postMessage({ type: 'stratos-iframe-height', height: h }, '*');
+    }
+  }
+  window.addEventListener('load', postHeight);
+  window.addEventListener('resize', postHeight);
+  new ResizeObserver(postHeight).observe(document.documentElement);
+</script>
+
+<!-- ====== HERO ====== -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">Nouveau · Abonnements pilotes</div>
+    <h1>Roule régulièrement.<br><span class="accent">Progresse vraiment.</span></h1>
+    <p class="subtitle">
+      Un abonnement pour piloter chaque semaine, débriefer ta technique avec un pilote pro,
+      et transformer la curiosité en vraie progression. Sans avoir à payer une journée circuit.
+    </p>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">55€</div>
+        <div class="stat-label">Tarif normal /h</div>
+      </div>
+      <div>
+        <div class="stat-num">−47%</div>
+        <div class="stat-label">Économie max</div>
+      </div>
+      <div>
+        <div class="stat-num">∞</div>
+        <div class="stat-label">Progrès</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== PLANS ====== -->
+<section class="plans-section" id="plans">
+  <div class="plans-inner">
+    <div class="section-eyebrow">Deux formules · Engagement 6 mois</div>
+    <h2 class="section-title">Choisis ton rythme</h2>
+    <p class="section-subtitle">Tout l'équipement, le coaching, et les Masterclass de Romain Leroux — sans devoir réserver à chaque fois.</p>
+
+    <div class="plans-grid">
+
+      <!-- ========= LIGHT ========= -->
+      <div class="plan-card">
+        <div class="plan-name">Pilote Light</div>
+        <div class="plan-tagline">Pour rouler régulier sans se ruiner</div>
+        <div class="plan-price">
+          <span class="amount">145</span>
+          <span class="currency">€</span>
+          <span class="period">/mois</span>
+        </div>
+        <div class="plan-meta">Soit 29€/h — vs 55€ au tarif normal</div>
+
+        <ul class="plan-perks">
+          <li><strong>5h de simulateur</strong> par mois (Pilotage Solo)</li>
+          <li><strong>1 Masterclass trimestrielle</strong> avec Romain Leroux en présentiel</li>
+          <li>Réservation prioritaire sur les créneaux</li>
+          <li>Annulation 24h avant = heure recréditée</li>
+          <li>Engagement 6 mois, puis résiliable à tout moment</li>
+        </ul>
+
+        <a href="https://www.stratos-academie.com/plan-checkout/pilote-light" target="_top" class="plan-cta secondary">Souscrire Pilote Light</a>
+        <div class="plan-footnote">Sans engagement après 6 mois · résiliable depuis ton espace membre</div>
+      </div>
+
+      <!-- ========= RÉGULIER (FEATURED) ========= -->
+      <div class="plan-card featured">
+        <div class="featured-tag">Le choix des passionnés</div>
+        <div class="plan-name">Pilote Régulier</div>
+        <div class="plan-tagline">Pour vraiment progresser, mois après mois</div>
+        <div class="plan-price">
+          <span class="amount">200</span>
+          <span class="currency">€</span>
+          <span class="period">/mois</span>
+        </div>
+        <div class="plan-meta">Soit 20€/h — l'équivalent d'un café par session</div>
+
+        <ul class="plan-perks">
+          <li><strong>10h de simulateur</strong> par mois (Pilotage Solo)</li>
+          <li><strong>2h de Masterclass mensuelle</strong> avec Romain Leroux en présentiel</li>
+          <li>Réservation prioritaire sur les créneaux</li>
+          <li>Annulation 24h avant = heure recréditée</li>
+          <li>Engagement 6 mois, puis résiliable à tout moment</li>
+        </ul>
+
+        <a href="https://www.stratos-academie.com/plan-checkout/pilote-regulier" target="_top" class="plan-cta primary">Souscrire Pilote Régulier</a>
+        <div class="plan-footnote">Le rythme optimal pour passer un cap dans ton pilotage</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ====== MASTERCLASS BAND ====== -->
+<section class="mc-band">
+  <div class="text">
+    <h2>Les Masterclass <span style="color:var(--accent)">Romain Leroux</span></h2>
+    <p>Pilote ELMS Ferrari GT3, Kessel Racing.</p>
+    <p>Chaque mois (ou chaque trimestre selon ton abonnement), Romain ouvre l'académie pour une session présentiel sur un thème précis : trajectoires, dosage du frein, gestion de la dégradation pneu, pilotage sous pluie…</p>
+    <p>Petit groupe, débriefing en direct sur tes sessions de la semaine, questions ouvertes.</p>
+    <div class="quote-style">
+      « Tu ne progresses pas en t'entraînant. Tu progresses en t'entraînant <em>bien</em>. La différence c'est ce qu'on bosse en Masterclass. »
+    </div>
+  </div>
+  <div class="visual">
+    <div class="pic-placeholder">RL</div>
+  </div>
+</section>
+
+<!-- ====== COMMENT ÇA MARCHE ====== -->
+<section class="how-it-works">
+  <div class="section-eyebrow">Comment ça marche</div>
+  <h2 class="section-title">3 étapes pour commencer</h2>
+
+  <div class="how-grid">
+    <div class="how-step">
+      <div class="num">1</div>
+      <h3>Choisis ta formule</h3>
+      <p>Light ou Régulier selon ton rythme. Tu peux changer à la fin de ta période d'engagement.</p>
+    </div>
+    <div class="how-step">
+      <div class="num">2</div>
+      <h3>Réserve quand tu veux</h3>
+      <p>Tes heures sont disponibles dès la souscription, réservables en ligne en 30 secondes. Réservation prioritaire sur les créneaux populaires.</p>
+    </div>
+    <div class="how-step">
+      <div class="num">3</div>
+      <h3>Roule + progresse</h3>
+      <p>Sim pro, coaching à la session, Masterclass régulières avec Romain. Ton solde se recharge automatiquement chaque mois.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ====== FAQ ====== -->
+<section class="faq-section">
+  <div class="section-eyebrow">Questions fréquentes</div>
+  <h2 class="section-title" style="margin-bottom:40px">Tout ce qu'il faut savoir</h2>
+
+  <details>
+    <summary>Que se passe-t-il si je ne consomme pas toutes mes heures ?</summary>
+    <p>Les heures non utilisées en fin de mois sont perdues. Le solde se réinitialise au montant prévu (5h Light / 10h Régulier) à chaque renouvellement. Mais à 20€/h, tu rentres dans tes frais dès la 3e session.</p>
+  </details>
+
+  <details>
+    <summary>Je peux annuler à tout moment ?</summary>
+    <p>Tu t'engages pour 6 mois minimum à la souscription. Au-delà, l'abonnement est résiliable à tout moment depuis ton espace membre — la résil prend effet à la fin du cycle en cours.</p>
+  </details>
+
+  <details>
+    <summary>La Masterclass, c'est obligatoire ?</summary>
+    <p>Non, c'est inclus dans ton abonnement mais tu n'es pas obligé de venir. Si Stratos l'annule, on te crédite +1h de simu en compensation.</p>
+  </details>
+
+  <details>
+    <summary>Je peux changer de formule en cours d'abonnement ?</summary>
+    <p>Oui, à la fin de ta période d'engagement de 6 mois. Tu peux upgrader Light → Régulier ou inversement depuis ton espace membre.</p>
+  </details>
+
+  <details>
+    <summary>L'abonnement est nominatif ou je peux partager mes heures ?</summary>
+    <p>Nominatif. Tes heures sont à toi uniquement, pour garantir le coaching individuel. Tu veux faire venir un pote ? Il prend une session découverte à 30€.</p>
+  </details>
+
+  <details>
+    <summary>Et si je veux annuler avant les 6 mois ?</summary>
+    <p>Le contrat te lie pour 6 mensualités minimum. Annulation anticipée = règlement des mensualités restantes. Tu peux te rétracter dans les 14 jours suivant la souscription (sauf si tu as déjà utilisé une heure ou une Masterclass).</p>
+  </details>
+</section>
+
+<!-- ====== FINAL CTA ====== -->
+<section class="final-cta">
+  <h2>Prêt à faire de la sim ton terrain d'entraînement ?</h2>
+  <p>Plus tu roules régulier, plus tu progresses. Et plus tu progresses, plus tu as envie de rouler. C'est le cercle vertueux qu'on installe avec les abonnements.</p>
+  <a href="#plans" class="btn-primary">Voir les formules</a>
+</section>
+
+<footer>
+  Stratos Académie · 145 rue du Président Roosevelt, 78100 Saint-Germain-en-Laye<br>
+  contact@stratos-academie.fr · CGV · Politique de confidentialité · Médiation conso
+</footer>
+
+</body>
+</html>
