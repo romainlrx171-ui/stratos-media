@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Petit Le Mans · 10 h d'endurance en équipage — Stratos Académie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Rajdhani:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     THÈME — change une couleur ici, toute la page suit.
+     ============================================================ */
+  :root{
+    --green:#8DC63F;   /* vert Stratos : accents, prix recommandé */
+    --amber:#F5A623;   /* ambre : urgence, encart de comparaison  */
+    --red:#E23A2E;     /* rouge : bouton d'action principal       */
+    --ink:#0a0c08; --ink2:#12160d; --panel:#161b10;
+    --line:rgba(141,198,63,.24); --line2:rgba(141,198,63,.13);
+    --txt:#eef2e6; --muted:#98a189; --white:#fff;
+    --pad:clamp(18px,5vw,72px);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--ink);color:var(--txt);font-family:'Rajdhani',sans-serif;font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  .display{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;line-height:.92;font-weight:800;color:var(--white)}
+  .display .g{color:var(--green)}
+  .label{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.22em;font-weight:600;font-size:11px;color:var(--green);display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .label::before{content:"";width:22px;height:2px;background:var(--green);flex:0 0 auto}
+  .wrap{max-width:1120px;margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+  section{padding:clamp(46px,7vw,86px) 0;border-top:1px solid var(--line2)}
+  h2.display{font-size:clamp(30px,5vw,50px);letter-spacing:.005em}
+  h3{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;font-weight:700;font-size:22px;color:var(--white);line-height:1.05;letter-spacing:.01em}
+  p{color:var(--muted)}
+  p b, li b{color:var(--txt);font-weight:600}
+  .lead{font-size:clamp(17px,2vw,20px);max-width:66ch;margin-top:14px}
+  .lead:first-of-type{margin-top:20px}
+
+  .nav{position:relative;z-index:50;background:rgba(10,12,8,.92);border-bottom:1px solid var(--line2)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:12px;padding-bottom:12px}
+  .nav .brand{font-family:'Barlow Condensed',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:19px;color:var(--white)}
+  .nav .brand .g{color:var(--green)}
+  .nav .navdate{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.16em;font-size:10px;color:var(--muted)}
+  @media(max-width:720px){.nav .navdate{display:none}}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.1em;font-weight:600;font-size:13px;text-decoration:none;padding:15px 26px;border-radius:8px;background:var(--red);color:#fff;border:1px solid var(--red);transition:transform .12s ease,filter .12s ease}
+  .btn:hover{transform:translateY(-1px);filter:brightness(1.12)}
+  .btn.ghost{background:transparent;color:var(--txt);border-color:var(--line)}
+  .btn.green{background:var(--green);border-color:var(--green);color:#0a0c08}
+  .btn.sm{padding:11px 18px;font-size:11px}
+  .btn.full{width:100%}
+
+  .hero{position:relative;overflow:hidden;border-top:none}
+  .hero .bg{position:absolute;inset:0}
+  .hero .bg img{width:100%;height:100%;object-fit:cover;filter:saturate(.85)}
+  .hero .veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,12,8,.96) 0%,rgba(10,12,8,.88) 46%,rgba(10,12,8,.35) 100%),linear-gradient(0deg,rgba(10,12,8,1) 2%,rgba(10,12,8,0) 45%)}
+  .hero .wrap{position:relative;padding-top:clamp(52px,9vw,104px);padding-bottom:clamp(44px,7vw,86px)}
+  .kick{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.15em;font-size:11px;color:var(--txt);display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+  .kick .dot{width:7px;height:7px;border-radius:50%;background:var(--red);box-shadow:0 0 10px var(--red);flex:0 0 auto}
+  .hero h1{font-size:clamp(42px,8.4vw,92px);max-width:15ch}
+  .hero .sub{font-family:'Oswald',sans-serif;font-weight:300;font-size:clamp(16px,2.2vw,22px);color:var(--txt);margin-top:20px;max-width:52ch;line-height:1.42}
+  .hero .sub .g{color:var(--green);font-weight:500}
+  .ctarow{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+  .trust{display:flex;flex-wrap:wrap;gap:10px 24px;margin-top:26px;font-size:15px;color:var(--muted)}
+  .trust span{display:flex;align-items:center;gap:8px}
+  .trust b{color:var(--green);font-weight:700}
+
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;background:var(--line2);border:1px solid var(--line2);border-radius:12px;overflow:hidden;margin-top:34px}
+  .stats .s{background:var(--ink2);padding:20px 22px}
+  .stats .n{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:40px;color:var(--green);line-height:1}
+  .stats .l{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.12em;font-size:10px;color:var(--muted);margin-top:7px;line-height:1.45}
+
+  .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px;margin-top:30px}
+  .card{background:var(--ink2);border:1px solid var(--line2);border-radius:12px;padding:24px}
+  .card .cnum{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:13px;color:var(--ink);background:var(--green);border-radius:4px;padding:1px 8px;display:inline-block;margin-bottom:12px}
+  .card p{margin-top:10px;font-size:16px}
+
+  .prog{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:30px;background:var(--ink2)}
+  .prow{display:grid;grid-template-columns:1fr 84px;border-bottom:1px solid var(--line2)}
+  .prow:last-child{border-bottom:none}
+  .prow .txt{padding:18px 22px}
+  .prow .ph{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:21px;text-transform:uppercase;color:var(--white);line-height:1.05}
+  .prow .ds{font-size:16px;color:var(--muted);margin-top:5px;line-height:1.45}
+  .prow .du{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:27px;color:var(--green);display:flex;align-items:center;justify-content:center;border-left:1px solid var(--line2)}
+  .prow.race{background:rgba(226,58,46,.09)}.prow.race .du{color:var(--amber)}
+  .prow.tot{background:rgba(141,198,63,.14)}.prow.tot .ph{color:var(--green)}.prow.tot .du{color:var(--green)}
+  .num{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:12px;color:var(--ink);background:var(--green);border-radius:4px;padding:0 7px;margin-right:9px;vertical-align:3px}
+
+  .offers{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px;margin-top:34px;align-items:stretch}
+  .offer{background:var(--ink2);border:1px solid var(--line2);border-radius:14px;padding:28px;position:relative;display:flex;flex-direction:column}
+  .offer.best{border-color:var(--green);background:var(--panel);box-shadow:0 0 0 1px rgba(141,198,63,.2),0 18px 50px rgba(0,0,0,.5)}
+  .ribbon{position:absolute;top:-11px;left:28px;background:var(--green);color:var(--ink);font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.14em;font-size:10px;font-weight:600;padding:5px 12px;border-radius:5px}
+  .offer .oname{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;font-weight:800;font-size:29px;color:var(--white);line-height:1}
+  .offer.best .oname{color:var(--green)}
+  .offer .otag{font-family:'Oswald',sans-serif;font-weight:300;font-size:16px;color:var(--txt);margin-top:7px}
+  .price{display:flex;align-items:baseline;gap:9px;margin:20px 0 4px}
+  .price .amt{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:58px;color:var(--white);line-height:.85}
+  .offer.best .price .amt{color:var(--green)}
+  .price .per{font-family:'Oswald',sans-serif;font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+  .permath{font-size:15px;color:var(--amber);margin-bottom:20px}
+  .inc{list-style:none;display:flex;flex-direction:column;gap:11px;padding-top:20px;border-top:1px solid var(--line2)}
+  .inc.cont{border-top:none;padding-top:11px}
+  /* flex + un <span> unique : sinon chaque <b> devient une cellule de grille
+     et le texte se casse en colonne d'un mot par ligne. */
+  .inc li{display:flex;align-items:flex-start;gap:10px;font-size:16px;color:var(--txt);line-height:1.42}
+  .inc li::before{flex:0 0 14px}
+  .inc li > span{flex:1 1 auto;min-width:0}
+  .inc li::before{content:"\2713";color:var(--green);font-weight:700}
+  .inc li.no{color:var(--muted)}
+  .inc li.no::before{content:"\00d7";color:#5c6650}
+  .exchead{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.14em;font-size:10px;color:var(--muted);margin-top:16px}
+  .anchor{margin-top:20px;padding:15px 17px;border-radius:9px;background:rgba(141,198,63,.07);border:1px solid var(--line2);font-size:15px;color:var(--muted);line-height:1.48}
+  .anchor b{color:var(--txt)}
+  .offer .btn{margin-top:22px}
+  .offerfoot{margin-top:auto}
+
+  .delta{margin-top:26px;border-left:3px solid var(--amber);background:rgba(245,166,35,.07);padding:20px 24px;border-radius:0 10px 10px 0}
+  .delta .dt{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;font-weight:700;font-size:20px;color:var(--amber)}
+  .delta p{margin-top:7px;font-size:16px;color:var(--txt)}
+
+  .split{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(22px,4vw,54px);align-items:center}
+  .split.flip .col-txt{order:2}
+  @media(max-width:840px){.split{grid-template-columns:1fr}.split.flip .col-txt{order:0}}
+  .split img{border-radius:12px;border:1px solid var(--line2)}
+  .crew{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:16px;margin-top:30px}
+  .crew .c{background:var(--ink2);border:1px solid var(--line2);border-radius:12px;padding:26px}
+  .crew .c.hi{border-color:var(--line);background:var(--panel)}
+  .inlineimg{width:min(320px,100%);margin-top:26px;border:none}
+
+  .guar{border:1px solid var(--green);border-radius:14px;background:rgba(141,198,63,.06);padding:clamp(24px,4vw,38px)}
+  .guar h3{font-size:26px;color:var(--green)}
+  .guar p{margin-top:12px;font-size:17px;color:var(--txt);max-width:62ch}
+
+  details{border-bottom:1px solid var(--line2);padding:18px 0}
+  details summary{cursor:pointer;list-style:none;font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;font-weight:700;font-size:19px;color:var(--white);display:flex;justify-content:space-between;gap:18px;align-items:center}
+  details summary::-webkit-details-marker{display:none}
+  details summary::after{content:"+";color:var(--green);font-size:23px;font-weight:400;line-height:1}
+  details[open] summary::after{content:"\2013"}
+  details p{margin-top:11px;font-size:16px;max-width:70ch}
+
+  .final{background:var(--panel);text-align:center}
+  .final .label{justify-content:center}
+  .final .lead{margin-left:auto;margin-right:auto}
+  .final .ctarow{justify-content:center}
+  .closing{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.14em;font-size:12px;color:var(--amber);margin-top:24px}
+
+  footer{background:var(--ink);padding:34px 0 44px;border-top:1px solid var(--line2)}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:flex-end}
+  footer .fm{font-size:14px;color:var(--muted);line-height:1.6}
+  footer .fm strong{color:var(--white);font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;font-size:19px;letter-spacing:.05em}
+  footer .cr{font-size:12px;color:#5c6650;margin-top:8px;max-width:60ch}
+
+  /* Bandeau photo pleine largeur dans une section */
+  .band{width:100%;height:clamp(200px,32vw,380px);object-fit:cover;border-radius:12px;
+    border:1px solid var(--line2);margin-top:28px}
+
+  /* ============================================================
+     MOBILE & TABLETTE
+     ============================================================ */
+  @media (max-width:840px){
+    /* Le voile du hero passe en dégradé vertical : sur un écran étroit
+       un dégradé horizontal laisserait le texte sur la partie claire. */
+    .hero .veil{background:
+      linear-gradient(180deg,rgba(10,12,8,.62) 0%,rgba(10,12,8,.86) 42%,rgba(10,12,8,.97) 78%)}
+    .hero .wrap{padding-top:44px;padding-bottom:40px}
+    .hero h1{font-size:clamp(36px,10.5vw,58px);max-width:none}
+    .hero .sub{font-size:17px;margin-top:16px}
+    section{padding:44px 0}
+    .lead{font-size:17px}
+    /* Deux colonnes de stats plutôt qu'une pile de quatre */
+    .stats{grid-template-columns:1fr 1fr;margin-top:26px}
+    .stats .s{padding:16px 14px}
+    .stats .n{font-size:31px}
+    .split img{max-height:56vh;object-fit:cover}
+    .band{height:210px;margin-top:22px}
+    .offer{padding:24px 20px}
+    .price .amt{font-size:50px}
+    .ctarow .btn{flex:1 1 100%}
+    .trust{gap:8px 18px;font-size:14px}
+  }
+  @media (max-width:420px){
+    .nav .brand{font-size:16px}
+    .btn{padding:14px 18px;font-size:12px}
+    .btn.sm{padding:10px 13px;font-size:10px}
+    h2.display{font-size:27px}
+    .offer .oname{font-size:25px}
+    details summary{font-size:17px}
+  }
+  /* Filet de sécurité : jamais de scroll horizontal, quel que soit l'écran */
+  html,body{overflow-x:hidden;max-width:100%}
+</style>
+</head>
+<body>
+
+<div id="app"></div>
+
+<script>
+/* ==================================================================
+   TOUT LE CONTENU DE LA PAGE EST DANS CET OBJET.
+   Rien à toucher en dessous de la ligne "MOTEUR DE RENDU".
+
+   Règles d'écriture :
+   - *entre astérisques*  ->  s'affiche en vert
+   - **entre doubles**    ->  s'affiche en blanc gras
+   - <br> pour un retour à la ligne
+   - "show: false" masque une section sans la supprimer
+   - l'ordre du tableau "sections" est l'ordre de la page :
+     déplace un bloc, il change de place sur le site
+   ================================================================== */
+const C = {
+
+  // ---- Réglages généraux -----------------------------------------
+  reservation: "https://www.stratos-academie.com/event-details/petit-le-mans-10-h-dendurance-en-equipage",
+  images: "https://romainlrx171-ui.github.io/stratos-media/images/petit-le-mans",
+
+  nav: {
+    brand: "Stratos *Académie*",
+    date: "Petit Le Mans · Samedi 26 septembre 2026",
+    cta: "Réserver mon baquet"
+  },
+
+  hero: {
+    image: "stratos-salle.jpg",
+    alt: "La salle Stratos Academie, trois simulateurs Sparco sous les neons et le logo",
+    kicker: "Le premier grand rendez-vous Stratos · Samedi 26 septembre 2026",
+    title: "10 heures de course.<br>Ton *équipage*.<br>Un seul damier.",
+    sub: "On reproduit les *10 heures du Petit Le Mans* à Road Atlanta, au centre, à Saint-Germain-en-Laye. Départ à 10 h du matin, drapeau à damier de nuit. Quatre pilotes par voiture, *douze baquets en tout*.",
+    ctas: [
+      { label: "Voir les deux formules &rarr;", href: "#formules" },
+      { label: "C'est quoi, exactement ?", href: "#cest-quoi", style: "ghost" }
+    ],
+    trust: [
+      "Environ 2 h 30 de volant par pilote",
+      "Un coach avec toi du départ à l'arrivée",
+      "Inscris-toi seul, c'est nous qui constituons les équipages"
+    ],
+    stats: [
+      { n: "10 H",     l: "De course, du jour à la nuit" },
+      { n: "4",        l: "Pilotes par voiture, en relais" },
+      { n: "12",       l: "Baquets, puis on ferme" },
+      { n: "dès 75 €", l: "Par pilote" }
+    ]
+  },
+
+  // ---- Les sections, dans l'ordre d'affichage ---------------------
+  sections: [
+
+    { type: "cards", show: true, id: "cest-quoi",
+      image: "stratos-muret.jpg",
+      alt: "L espace detente de Stratos, fresque du circuit de Spa, barils verts et canape",
+      label: "Ce que ça veut dire pour toi",
+      title: "10 heures de course, ce n'est *pas* 10 heures de volant.",
+      leads: [
+        "Tu roules à peu près **2 h 30**, découpées en relais. Le reste du temps tu es au muret : tu suis la course sur les écrans, tu prépares ton prochain relais avec ton coach, tu manges, tu regardes tes coéquipiers se battre pour la position. C'est exactement ça, l'endurance.",
+        "Ce n'est pas une épreuve de résistance physique. **C'est une épreuve d'équipe.** Le pilote le plus rapide ne gagne pas. L'équipage le plus propre gagne."
+      ],
+      cards: [
+        { h: "La régularité bat la vitesse", p: "Sur dix heures, un pilote propre qui ramène la voiture rapporte plus qu'un rapide qui part en tête-à-queue. Ce n'est plus le même exercice qu'une session." },
+        { h: "La nuit tombe pendant la course", p: "Départ à 10 h du matin, arrivée de nuit. Les phares s'allument, les repères disparaissent, le rythme change. C'est le moment que personne n'oublie." }
+      ]
+    },
+
+    { type: "split", show: true, image: "gt-porsche.jpg",
+      alt: "Porsche 911 GT3 dans les esses de Road Atlanta pendant le Petit Le Mans",
+      label: "Ce n'est pas un huis clos",
+      title: "Le même week-end que *la vraie course*.",
+      leads: [
+        "Pendant que tu prends ton relais, le vrai Petit Le Mans se court à Road Atlanta, sur le tracé que tu auras appris par cœur.",
+        "Et tu n'es pas seul sur la piste. C'est l'épreuve officielle : ton équipage part sur une **grille internationale**, contre des équipes qui préparent cette course depuis des semaines. Le classement du soir est un vrai classement, pas un tableau interne."
+      ]
+    },
+
+    /* COUPÉE : nos clients connaissent déjà le centre, ils n'ont pas besoin
+       qu'on leur explique qu'ils peuvent venir. Repasser à true pour un
+       public froid (pub, prospection). */
+    { type: "cards", show: false,
+      label: "Pour qui c'est",
+      title: "Trois façons d'arriver le 26 septembre.",
+      numbered: true,
+      cards: [
+        { h: "Tu roules déjà chez nous", p: "Tu sais poser un tour. Là, il faut le poser quarante fois d'affilée, sans erreur, avec trois coéquipiers qui comptent sur toi. C'est un autre exercice, et c'est le plus exigeant des deux." },
+        { h: "Tu n'es jamais monté dans un simu", p: "C'est précisément pour ça qu'il y a un bootcamp de 5 h et un coaching individuel avant. Tu n'arrives pas dans l'inconnu. Le 26 au matin, tu sauras où tu freines." },
+        { h: "Vous venez à plusieurs", p: "Constituez votre équipage à quatre. Même voiture, même stratégie, même classement. Et à la fin de la journée, un seul d'entre vous aura signé le meilleur relais." }
+      ]
+    },
+
+    { type: "programme", show: true,
+      image: "stratos-coaching.jpg",
+      alt: "Un coach Stratos derriere une pilote en session, casques sur les oreilles",
+      label: "Le programme",
+      title: "La semaine d'un pilote *d'endurance*.",
+      leads: ["De la reconnaissance du tracé au drapeau à damier. Tu pilotes, on s'occupe du reste."],
+      rows: [
+        { n: "1", h: "Bootcamp collectif",   d: "Samedi 19 septembre, de 14 h à 19 h. Réglages, tracé, rythme et protocole de relais en équipe.", du: "5 H" },
+        { n: "2", h: "Coaching individuel",  d: "Sur un créneau que tu choisis. Trajectoires, points de freinage, télémétrie, rien que pour toi.", du: "2 H" },
+        { n: "3", h: "Course Petit Le Mans", d: "Samedi 26 septembre. Départ à 10 h, dix heures en relais, jusqu'au damier de nuit.", du: "10 H", style: "race" },
+        {         h: "Programme complet",    d: "Bootcamp, coaching, course et débrief data.", du: "17 H", style: "tot" }
+      ]
+    },
+
+    { type: "offers", show: true, id: "formules",
+      label: "Les deux formules",
+      title: "Tu prends le départ. *Préparé, ou pas.*",
+      leads: ["Les deux formules font la même course, dans la même voiture, sur le même classement. La différence, c'est ce que tu sais faire au moment où le feu passe au vert."],
+      offers: [
+        { name: "Baquet course", tag: "Le jour J, tu roules.",
+          price: "75 €", per: "/ pilote",
+          math: "Dix heures de course pour le prix d'une session.",
+          includes: [
+            "Briefing d'équipage le matin du 26 septembre",
+            "Les 10 heures de course en relais, jusqu'au damier de nuit",
+            "Ta GT3 type IMSA, choisie par l'équipage",
+            "Classement final et temps au tour de chacun de tes relais"
+          ],
+          excludes: [
+            "Le bootcamp collectif du 19 septembre",
+            "Les 2 h de coaching individuel",
+            "Ton débrief télémétrie personnel"
+          ],
+          anchor: "Une Course Relais au tarif du centre, c'est **160 €**. Ici tu as **dix heures** sur le circuit exact du Petit Le Mans, pour 75 €.",
+          cta: "Prendre un baquet course" },
+
+        { name: "Programme pilote", tag: "La semaine complète d'un pilote d'endurance.",
+          best: true, ribbon: "Recommandé",
+          price: "200 €", per: "/ pilote",
+          math: "17 heures encadrées, soit 12 € de l'heure.",
+          includes: [
+            "**Tout le Baquet course**, et en plus :",
+            "Bootcamp collectif de **5 h** le samedi 19 septembre. Réglages, tracé, rythme, protocole de relais.",
+            "**2 h de coaching individuel** sur le créneau que tu choisis. Trajectoires, freinages, télémétrie.",
+            "Ton coach avec toi **pendant la course**, du premier tour au dernier",
+            "Ton débrief data après l'arrivée, relais par relais",
+            "Tu arrives le 26 en sachant déjà où tu freines"
+          ],
+          anchor: "Une journée de roulage sur un vrai circuit, c'est **350 à 800 €** pour quelques tours. Ici, dix-sept heures encadrées et dix heures de course, pour 200 €.",
+          cta: "Réserver mon programme pilote" }
+      ],
+      delta: {
+        title: "L'écart entre les deux, c'est 125 €",
+        text: "Pour 125 € de plus, tu ajoutes **sept heures de coaching** avant la course. C'est le seul moyen d'arriver le 26 septembre en connaissant le circuit, ta voiture et ton protocole de relais. Sinon, tu passes tes deux premiers relais à découvrir."
+      }
+    },
+
+    { type: "split", show: true, flip: true, image: "stratos-equipage.jpg",
+      alt: "Deux pilotes cote a cote dans les cockpits Stratos, casques sur les oreilles",
+      label: "Ton équipage",
+      title: "Tu n'as pas d'équipe ? *On la monte pour toi.*",
+      leads: ["C'est l'obstacle que tout le monde rencontre en premier, alors nous l'avons levé : **par défaut, c'est nous qui composons les équipages.** Tu t'inscris seul, tu découvres tes coéquipiers au bootcamp du 19, et le soir de la course tu as une histoire commune avec eux. C'est exactement comme ça que ça se passe en vrai en endurance."],
+      crew: [
+        { h: "Tu t'inscris seul", hi: true, p: "Rien de plus à prévoir. On te place dans un équipage en fonction de ton niveau et de tes dispos, et on te présente ta voiture et tes coéquipiers avant le bootcamp." },
+        { h: "Tu viens déjà à quatre", p: "Dans ce cas nous ne modifions rien. Inscrivez-vous ensemble, on vous garde la même voiture et un nom d'équipage. C'est la seule situation où on ne compose pas l'équipe." }
+      ]
+    },
+
+    /* COUPÉE : vend le simulateur (laser-scan, fidélité du tracé) alors qu'on
+       vend une course. Nos clients savent déjà ce que vaut le matériel. */
+    { type: "split", show: false, image: "circuit-aerial.jpg",
+      alt: "Vue aerienne du circuit de Road Atlanta",
+      label: "Le circuit",
+      title: "Road Atlanta.<br>Le vrai, *laser-scanné.*",
+      leads: [
+        "4,088 km, douze virages, et les fameuses **esses** en descente, aveugles, à pleine charge. C'est là que la course se gagne, et c'est surtout là qu'elle se perd.",
+        "iRacing scanne les circuits au laser, bosse par bosse. Tu ne roules pas sur une approximation de Road Atlanta, tu roules sur Road Atlanta."
+      ],
+      inlineImage: "trace-exact.png",
+      inlineAlt: "Trace du circuit de Road Atlanta"
+    },
+
+    /* GARANTIE — passe "show" à false pour la retirer de la page. */
+    { type: "guarantee", show: true,
+      label: "Zéro risque",
+      title: "Viens au bootcamp du 19. Décide après.",
+      text: "Si en repartant du bootcamp tu estimes que ce n'est pas pour toi, tu nous le dis et **on te rembourse la course**. Le bootcamp, tu le gardes, tu as roulé cinq heures. On préfère un pilote qui vient parce qu'il en a envie plutôt qu'un baquet rempli par obligation."
+    },
+
+    { type: "faq", show: true,
+      label: "Les vraies questions",
+      title: "Ce que tout le monde nous demande.",
+      items: [
+        { open: true, q: "Je n'ai jamais fait de simulateur, je vais plomber l'équipe ?",
+          a: "Non. Le bootcamp et le coaching individuel existent exactement pour ça. Et en endurance, la régularité compte plus que la vitesse pure : un pilote propre qui ramène la voiture vaut mieux qu'un rapide qui part en tête-à-queue au troisième tour. Ton équipage préférera toujours le premier." },
+        { q: "Je dois rester dix heures sur place ?",
+          a: "Tu es attendu pour le briefing du matin et pour tes relais. Entre les deux, tu peux te reposer, sortir et manger. Dans les faits, personne ne repart avant l'arrivée." },
+        { q: "Quelle voiture on pilote ?",
+          a: "Une GT3 type IMSA, choisie par ton équipage. Ferrari, BMW, Aston Martin, Porsche : vous décidez ensemble au bootcamp, selon ce qui colle à votre style." },
+        { q: "Je peux commencer en Baquet course et passer en Programme pilote après ?",
+          a: "Tant qu'il reste de la place au bootcamp du 19, oui. Tu règles simplement la différence. Après le 18 septembre au soir, ce n'est plus possible." }
+      ]
+    },
+
+    { type: "final", show: true, id: "reserver",
+      label: "Douze baquets, trois équipages",
+      title: "Le 26 septembre, il y aura douze pilotes au départ. *Tu en fais partie ?*",
+      leads: ["Les inscriptions ferment le **jeudi 18 septembre au soir**, parce que le bootcamp est le samedi 19. Passé cette date, il est trop tard pour préparer un équipage, et on ne prend plus personne."],
+      ctas: [
+        { label: "Programme pilote &mdash; 200 €", book: true, style: "green" },
+        { label: "Baquet course &mdash; 75 €",     book: true, style: "ghost" }
+      ],
+      closing: "Samedi 26 septembre 2026 · Départ 10 h · Stratos, Saint-Germain-en-Laye",
+      note: "Une question avant de te décider ? Écris-nous à contact@stratos-academie.com, on te répond dans la journée.",
+      noteEmail: "contact@stratos-academie.com"
+    }
+  ],
+
+  footer: {
+    name: "Stratos Académie",
+    lines: ["École de pilotage sur simulateurs · Saint-Germain-en-Laye", "stratos-academie.com"],
+    credits: "Photos Road Atlanta / Petit Le Mans via Wikimedia Commons : « Road Atlanta 2009 - Petit Le Mans » par Neil_J (CC BY 2.0) · « Road Atlanta Aerial - September 2016 » par formulanone (CC BY-SA 2.0) · « 2019 Petit Le Mans starting grid » par Osajus Photography (CC BY 2.0) · « Petit le Mans 2015 - Porsche 911 #44 » par Mark Seymour (CC BY 2.0)."
+  }
+};
+
+/* ==================================================================
+   MOTEUR DE RENDU — ne rien modifier en dessous.
+   ================================================================== */
+(function () {
+  var img = function (f) { return C.images + "/" + f; };
+
+  // *vert* et **blanc gras**
+  function fmt(s) {
+    return String(s == null ? "" : s)
+      .replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>')
+      .replace(/\*([^*]+)\*/g, '<span class="g">$1</span>');
+  }
+  function leads(arr) {
+    return (arr || []).map(function (t) { return '<p class="lead">' + fmt(t) + '</p>'; }).join("");
+  }
+  function head(s) {
+    return (s.label ? '<div class="label">' + s.label + '</div>' : '')
+         + (s.title ? '<h2 class="display">' + fmt(s.title) + '</h2>' : '')
+         + leads(s.leads);
+  }
+  // NB : pas de loading="lazy" sur cette page. Dans une iframe Wix deployee en
+  // pleine hauteur, les images en lazy situees bas de page ne se chargent jamais.
+  // Bandeau photo pleine largeur, utilisable dans n'importe quelle section
+  // en ajoutant "image" et "alt" à son bloc de config.
+  function band(s) {
+    if (!s.image) return "";
+    return '<img class="band" decoding="async" src="' + img(s.image)
+         + '" alt="' + (s.alt || "") + '">';
+  }
+  function statRow(list) {
+    return '<div class="stats">' + list.map(function (s) {
+      return '<div class="s"><div class="n">' + s.n + '</div><div class="l">' + s.l + '</div></div>';
+    }).join("") + '</div>';
+  }
+  function ctaRow(list) {
+    return '<div class="ctarow">' + list.map(function (b) {
+      var href = b.book ? C.reservation : b.href;
+      var tgt  = b.book ? ' target="_top"' : '';
+      return '<a class="btn ' + (b.style || "") + '"' + tgt + ' href="' + href + '">' + b.label + '</a>';
+    }).join("") + '</div>';
+  }
+
+  var R = {
+    cards: function (s) {
+      return head(s) + band(s) + '<div class="grid3">' + s.cards.map(function (c, i) {
+        return '<div class="card">'
+             + (s.numbered ? '<span class="cnum">' + (i + 1) + '</span>' : '')
+             + '<h3>' + fmt(c.h) + '</h3><p>' + fmt(c.p) + '</p></div>';
+      }).join("") + '</div>';
+    },
+
+    split: function (s) {
+      var pic = '<img decoding="async" src="' + img(s.image) + '" alt="' + (s.alt || "") + '">';
+      var txt = '<div class="col-txt">' + head(s)
+              + (s.stats ? statRow(s.stats) : "")
+              + (s.crew ? '<div class="crew">' + s.crew.map(function (c) {
+                  return '<div class="c' + (c.hi ? ' hi' : '') + '"><h3>' + fmt(c.h) + '</h3><p>' + fmt(c.p) + '</p></div>';
+                }).join("") + '</div>' : "")
+              + (s.inlineImage ? '<img class="inlineimg" src="' + img(s.inlineImage) + '" alt="' + (s.inlineAlt || "") + '">' : "")
+              + '</div>';
+      // flip:true met le texte à gauche et l'image à droite
+      return '<div class="split' + (s.flip ? ' flip' : '') + '">' + (s.flip ? txt + pic : pic + txt) + '</div>';
+    },
+
+    programme: function (s) {
+      return head(s) + band(s) + '<div class="prog">' + s.rows.map(function (r) {
+        return '<div class="prow ' + (r.style || "") + '"><div class="txt"><div class="ph">'
+             + (r.n ? '<span class="num">' + r.n + '</span>' : '') + fmt(r.h)
+             + '</div><div class="ds">' + fmt(r.d) + '</div></div><div class="du">' + r.du + '</div></div>';
+      }).join("") + '</div>';
+    },
+
+    offers: function (s) {
+      var cards = s.offers.map(function (o) {
+        return '<div class="offer' + (o.best ? ' best' : '') + '">'
+          + (o.ribbon ? '<div class="ribbon">' + o.ribbon + '</div>' : '')
+          + '<div class="oname">' + o.name + '</div>'
+          + '<div class="otag">' + o.tag + '</div>'
+          + '<div class="price"><span class="amt">' + o.price + '</span><span class="per">' + o.per + '</span></div>'
+          + '<div class="permath">' + o.math + '</div>'
+          + '<ul class="inc">' + o.includes.map(function (i) { return '<li><span>' + fmt(i) + '</span></li>'; }).join("") + '</ul>'
+          + (o.excludes ? '<div class="exchead">Non inclus</div><ul class="inc cont">'
+              + o.excludes.map(function (i) { return '<li class="no"><span>' + fmt(i) + '</span></li>'; }).join("") + '</ul>' : '')
+          + '<div class="offerfoot"><div class="anchor">' + fmt(o.anchor) + '</div>'
+          + '<a class="btn ' + (o.best ? 'green' : 'ghost') + ' full" target="_top" href="' + C.reservation + '">' + o.cta + '</a></div>'
+          + '</div>';
+      }).join("");
+      return head(s) + '<div class="offers">' + cards + '</div>'
+        + (s.delta ? '<div class="delta"><div class="dt">' + s.delta.title + '</div><p>' + fmt(s.delta.text) + '</p></div>' : '');
+    },
+
+    guarantee: function (s) {
+      return '<div class="guar"><div class="label">' + s.label + '</div><h3>' + fmt(s.title)
+           + '</h3><p>' + fmt(s.text) + '</p></div>';
+    },
+
+    faq: function (s) {
+      return head(s) + '<div style="margin-top:26px">' + s.items.map(function (f) {
+        return '<details' + (f.open ? ' open' : '') + '><summary>' + f.q + '</summary><p>' + fmt(f.a) + '</p></details>';
+      }).join("") + '</div>';
+    },
+
+    final: function (s) {
+      var note = s.note;
+      if (s.noteEmail) {
+        note = note.replace(s.noteEmail, '<a href="mailto:' + s.noteEmail + '" style="color:var(--green)">' + s.noteEmail + '</a>');
+      }
+      return head(s) + ctaRow(s.ctas)
+        + '<div class="closing">' + s.closing + '</div>'
+        + '<p style="margin-top:22px;font-size:15px">' + note + '</p>';
+    }
+  };
+
+  var html = ''
+    + '<div class="nav"><div class="wrap">'
+    +   '<div class="brand">' + fmt(C.nav.brand) + '</div>'
+    +   '<div class="navdate">' + C.nav.date + '</div>'
+    +   '<a class="btn sm" href="#formules">' + C.nav.cta + '</a>'
+    + '</div></div>'
+    + '<section class="hero">'
+    +   '<div class="bg"><img src="' + img(C.hero.image) + '" alt="' + C.hero.alt + '"></div>'
+    +   '<div class="veil"></div><div class="wrap">'
+    +     '<div class="kick"><span class="dot"></span> ' + C.hero.kicker + '</div>'
+    +     '<h1 class="display">' + fmt(C.hero.title) + '</h1>'
+    +     '<div class="sub">' + fmt(C.hero.sub) + '</div>'
+    +     ctaRow(C.hero.ctas)
+    +     '<div class="trust">' + C.hero.trust.map(function (t) {
+            return '<span><b>&#10003;</b> ' + t + '</span>'; }).join("") + '</div>'
+    +     statRow(C.hero.stats)
+    +   '</div>'
+    + '</section>';
+
+  C.sections.forEach(function (s) {
+    if (s.show === false || !R[s.type]) return;
+    html += '<section' + (s.id ? ' id="' + s.id + '"' : '')
+          + (s.type === "final" ? ' class="final"' : '')
+          + '><div class="wrap">' + R[s.type](s) + '</div></section>';
+  });
+
+  html += '<footer><div class="wrap">'
+    + '<div class="fm"><strong>' + C.footer.name + '</strong><br>' + C.footer.lines.join("<br>") + '</div>'
+    + '<div class="fm"><div class="cr">' + C.footer.credits + '</div></div>'
+    + '</div></footer>';
+
+  document.getElementById("app").innerHTML = html;
+
+  // Auto-hauteur dans l'iframe Wix (convention stratos-media)
+  function postHeight() {
+    if (window.parent !== window) {
+      window.parent.postMessage({ type: 'stratos-iframe-height', height: document.documentElement.scrollHeight }, '*');
+    }
+  }
+  window.addEventListener('load', postHeight);
+  window.addEventListener('resize', postHeight);
+  new ResizeObserver(postHeight).observe(document.documentElement);
+  document.querySelectorAll('details').forEach(function (d) { d.addEventListener('toggle', postHeight); });
+  postHeight();
+})();
+</script>
+
+</body>
+</html>
