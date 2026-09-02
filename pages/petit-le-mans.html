@@ -218,7 +218,7 @@ const C = {
   nav: {
     brand: "Stratos *Académie*",
     date: "Petit Le Mans · Samedi 26 septembre 2026",
-    cta: "Réserver mon baquet"
+    cta: "Réserver ma place"
   },
 
   hero: {
@@ -305,7 +305,7 @@ const C = {
       title: "Tu prends le départ. *Préparé, ou pas.*",
       leads: ["Les deux formules font la même course, dans la même voiture, sur le même classement. La différence, c'est ce que tu sais faire au moment où le feu passe au vert."],
       offers: [
-        { name: "Baquet course", tag: "Le jour J, tu roules.",
+        { name: "Course", tag: "Le jour J, tu roules.",
           price: "75 €", per: "/ pilote",
           math: "Dix heures de course pour le prix d'une session.",
           includes: [
@@ -320,14 +320,14 @@ const C = {
             "Ton débrief télémétrie personnel"
           ],
           anchor: "Une Course Relais au tarif du centre, c'est **160 €**. Ici tu as **dix heures** sur le circuit exact du Petit Le Mans, pour 75 €.",
-          cta: "Prendre un baquet course" },
+          cta: "Réserver ma place &mdash; Course" },
 
         { name: "Programme pilote", tag: "La semaine complète d'un pilote d'endurance.",
           best: true, ribbon: "Recommandé",
           price: "200 €", per: "/ pilote",
           math: "17 heures encadrées, soit 12 € de l'heure.",
           includes: [
-            "**Tout le Baquet course**, et en plus :",
+            "**Tout ce que comprend la formule Course**, et en plus :",
             "Bootcamp collectif de **5 h** le samedi 19 septembre. Réglages, tracé, rythme, protocole de relais.",
             "**2 h de coaching individuel** sur le créneau que tu choisis. Trajectoires, freinages, télémétrie.",
             "Ton coach avec toi **pendant la course**, du premier tour au dernier",
@@ -335,11 +335,11 @@ const C = {
             "Tu arrives le 26 en sachant déjà où tu freines"
           ],
           anchor: "Une journée de roulage sur un vrai circuit, c'est **350 à 800 €** pour quelques tours. Ici, dix-sept heures encadrées et dix heures de course, pour 200 €.",
-          cta: "Réserver mon programme pilote" }
+          cta: "Réserver ma place &mdash; Programme pilote" }
       ],
       delta: {
         title: "L'écart entre les deux, c'est 125 €",
-        text: "Pour 125 € de plus, tu ajoutes **sept heures de coaching** avant la course. C'est le seul moyen d'arriver le 26 septembre en connaissant le circuit, ta voiture et ton protocole de relais. Sinon, tu passes tes deux premiers relais à découvrir."
+        text: "Pour 125 € de plus, tu ajoutes **sept heures de coaching** avant la course. C'est le seul moyen d'arriver le 26 septembre en connaissant le circuit, ta voiture et ton protocole de relais. Sinon, tu passes tes deux premiers relais à découvrir.\n\nLes **douze places sont communes aux deux formules** : tu choisis la tienne au moment de réserver, et c'est premier arrivé, premier servi."
       }
     },
 
@@ -369,7 +369,7 @@ const C = {
     },
 
     /* GARANTIE — passe "show" à false pour la retirer de la page. */
-    { type: "guarantee", show: true,
+    { type: "guarantee", show: false,   /* Romain 02/09 : garantie non validée, retirée de la page. */
       label: "Zéro risque",
       title: "Viens au bootcamp du 19. Décide après.",
       text: "Si en repartant du bootcamp tu estimes que ce n'est pas pour toi, tu nous le dis et **on te rembourse la course**. Le bootcamp, tu le gardes, tu as roulé cinq heures. On préfère un pilote qui vient parce qu'il en a envie plutôt qu'un baquet rempli par obligation."
@@ -385,7 +385,7 @@ const C = {
           a: "Tu es attendu pour le briefing du matin et pour tes relais. Entre les deux, tu peux te reposer, sortir et manger. Dans les faits, personne ne repart avant l'arrivée." },
         { q: "Quelle voiture on pilote ?",
           a: "Une GT3 type IMSA, choisie par ton équipage. Ferrari, BMW, Aston Martin, Porsche : vous décidez ensemble au bootcamp, selon ce qui colle à votre style." },
-        { q: "Je peux commencer en Baquet course et passer en Programme pilote après ?",
+        { q: "Je peux réserver en Course et passer en Programme pilote après ?",
           a: "Tant qu'il reste de la place au bootcamp du 19, oui. Tu règles simplement la différence. Après le 18 septembre au soir, ce n'est plus possible." }
       ]
     },
@@ -393,10 +393,10 @@ const C = {
     { type: "final", show: true, id: "reserver",
       label: "Douze baquets, trois équipages",
       title: "Le 26 septembre, il y aura douze pilotes au départ. *Tu en fais partie ?*",
-      leads: ["Les inscriptions ferment le **jeudi 18 septembre au soir**, parce que le bootcamp est le samedi 19. Passé cette date, il est trop tard pour préparer un équipage, et on ne prend plus personne."],
+      leads: ["Les inscriptions ferment le **vendredi 18 septembre au soir**, parce que le bootcamp est le samedi 19. Passé cette date, il est trop tard pour préparer un équipage, et on ne prend plus personne."],
       ctas: [
-        { label: "Programme pilote &mdash; 200 €", book: true, style: "green" },
-        { label: "Baquet course &mdash; 75 €",     book: true, style: "ghost" }
+        { label: "Réserver ma place &rarr;", book: true, style: "green" },
+        { label: "Revoir les deux formules", href: "#formules", style: "ghost" }
       ],
       closing: "Samedi 26 septembre 2026 · Départ 10 h · Stratos, Saint-Germain-en-Laye",
       note: "Une question avant de te décider ? Écris-nous à contact@stratos-academie.com, on te répond dans la journée.",
