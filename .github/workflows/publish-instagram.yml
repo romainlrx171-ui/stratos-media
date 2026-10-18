@@ -1,0 +1,44 @@
+name: Publier Instagram (Stratos)
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "1 = test à blanc (rien n'est publié)"
+        default: "0"
+      only_id:
+        description: "Forcer un seul post (id de scheduler/queue.json)"
+        default: ""
+
+concurrency:
+  group: instagram-publish
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: scheduler
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Publier les posts dus
+        env:
+          IG_PAGE_TOKEN: ${{ secrets.IG_PAGE_TOKEN }}
+          DRY_RUN: ${{ inputs.dry_run || '0' }}
+          ONLY_ID: ${{ inputs.only_id || '' }}
+        run: node scheduler/publish.mjs
+      - name: Enregistrer l'état de la file
+        run: |
+          git config user.name "stratos-bot"
+          git config user.email "stratos-bot@users.noreply.github.com"
+          git add scheduler/queue.json
+          git diff --cached --quiet || (git commit -m "scheduler: état de publication" && git pull --rebase && git push)

@@ -1,0 +1,54 @@
+{
+  "posts": [
+    {
+      "id": "reel1-trailer-portimao",
+      "title": "Reel V1 #1 trailer 2 Heures de Portimão (30 s)",
+      "publishAt": "2026-10-18T18:00:00+02:00",
+      "status": "scheduled",
+      "instagram": {
+        "videoUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-10-16/reels-2h-portimao-v1/REEL-1-trailer-2h-portimao.mp4",
+        "caption": "Les Chambourcy, Grand Chavin, Les rapides : 3 équipages, 2 heures de course en relais à Portimão. Un dépassement pour la tête au tour 8, des relais au stand… et 71 secondes entre les trois à l'arrivée.\n\nJeudi 22, c'est ton tour. Seras-tu à la hauteur ?\nRéserve ta place : lien en bio.\n\nEnvoie ça à quelqu'un qui te doit une revanche.\n\n#simracing #portimao #stratosacademie\n\nCrédit carte : tracé Wikimedia Commons (CC BY-SA 4.0)."
+      }
+    },
+    {
+      "id": "carrousel-grille-toussaint",
+      "title": "Carrousel grille Toussaint (format Haas, 9 slides)",
+      "publishAt": "2026-10-19T11:00:00+02:00",
+      "status": "scheduled",
+      "instagram": {
+        "imageUrls": [
+          "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-10-17/carrousel-grille-toussaint/slide-01.jpg",
+          "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-10-17/carrousel-grille-toussaint/slide-02.jpg",
+          "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-10-17/carrousel-grille-toussaint/slide-03.jpg",
+          "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-10-17/carrousel-grille-toussaint/slide-04.jpg",
+          "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-10-17/carrousel-grille-toussaint/slide-05.jpg",
+          "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-10-17/carrousel-grille-toussaint/slide-06.jpg",
+          "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-10-17/carrousel-grille-toussaint/slide-07.jpg",
+          "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-10-17/carrousel-grille-toussaint/slide-08.jpg",
+          "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-10-17/carrousel-grille-toussaint/slide-09.jpg"
+        ],
+        "caption": "Glisse jusqu'au bout 👉\n\nLes vacances commencent. Les baquets sont prêts, du mardi au dimanche.\nDécouverte dès 27 €, et dernières places au Junior Racing Camp du 26-27 octobre au matin (dès 10 ans).\n\nRéserve : lien en bio\n📍 Stratos Académie · Saint-Germain-en-Laye\n\n#simracing #toussaint #vacances #saintgermainenlaye #yvelines"
+      }
+    },
+    {
+      "id": "reel2-duel-chambourcy",
+      "title": "Reel V1 #2 le duel vu par Les Chambourcy (21 s)",
+      "publishAt": "2026-10-19T18:00:00+02:00",
+      "status": "scheduled",
+      "instagram": {
+        "videoUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-10-16/reels-2h-portimao-v1/REEL-2-le-duel-chambourcy.mp4",
+        "caption": "Pole position, Grand Chavin qui attaque au tour 8, un relais au stand, et la chasse jusqu'au bout. Les Chambourcy finissent 2es, à 42 s, après 2 heures.\n\nEt toi, tu ferais mieux ? Jeudi 22 octobre, lien en bio.\n\nEnvoie ça à la personne avec qui tu ferais équipe.\n\n#simracing #endurance #stratosacademie"
+      }
+    },
+    {
+      "id": "reel3-meilleur-tour",
+      "title": "Reel V1 #3 ton meilleur tour en vidéo (23 s)",
+      "publishAt": "2026-10-20T18:00:00+02:00",
+      "status": "scheduled",
+      "instagram": {
+        "videoUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-10-16/reels-2h-portimao-v1/REEL-3-ton-meilleur-tour.mp4",
+        "caption": "Après ta course, tu repars avec ton rapport (tes temps, ta progression, ton classement) et la vidéo de ton meilleur tour. Le soir même.\n\nTon tour contre le leur ? Jeudi 22 octobre, lien en bio.\n\nEnvoie ça à quelqu'un qui dit qu'il est le plus rapide.\n\n#simracing #iracing #stratosacademie\n\nCrédit carte : tracé Wikimedia Commons (CC BY-SA 4.0)."
+      }
+    }
+  ]
+}
