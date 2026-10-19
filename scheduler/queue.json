@@ -17,7 +17,7 @@
       "id": "carrousel-grille-toussaint",
       "title": "Carrousel grille Toussaint (format Haas, 9 slides)",
       "publishAt": "2026-10-19T11:00:00+02:00",
-      "status": "scheduled",
+      "status": "published",
       "instagram": {
         "imageUrls": [
           "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-10-17/carrousel-grille-toussaint/slide-01.jpg",
@@ -31,17 +31,23 @@
           "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-10-17/carrousel-grille-toussaint/slide-09.jpg"
         ],
         "caption": "Glisse jusqu'au bout 👉\n\nLes vacances commencent. Les baquets sont prêts, du mardi au dimanche.\nDécouverte dès 27 €, et dernières places au Junior Racing Camp du 26-27 octobre au matin (dès 10 ans).\n\nRéserve : lien en bio\n📍 Stratos Académie · Saint-Germain-en-Laye\n\n#simracing #toussaint #vacances #saintgermainenlaye #yvelines"
-      }
+      },
+      "mediaId": "18060215789798822",
+      "permalink": "https://www.instagram.com/p/DerT5rkmPGP/",
+      "publishedAt": "2026-10-19T12:58:00.004Z"
     },
     {
       "id": "reel-va-verstappen-15-places",
       "title": "Reel V2 V-A Verstappen 15 places en 40 min (15,5 s)",
       "publishAt": "2026-10-19T12:00:00+02:00",
-      "status": "scheduled",
+      "status": "published",
       "instagram": {
         "videoUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-10-18/reel-va-verstappen/V-A-verstappen-15-places.mp4",
         "caption": "Samedi soir à Portimão, Verstappen ressort des stands 24e après une pénalité. Il finit 9e : 15 places en 40 minutes.\n\nJeudi 22, c'est toi sur ce circuit. 2 h de course en relais, 18 h 30, 45 €. Viens seul ou à deux, on forme les équipages.\n\nCombien de places tu gagnes, toi ? Lien en bio.\n\nImages : GT World / SRO Motorsports Group.\n#simracing #portimao #verstappen #stratosacademie"
-      }
+      },
+      "mediaId": "18073441418758290",
+      "permalink": "https://www.instagram.com/reel/DerT8NYCA28/",
+      "publishedAt": "2026-10-19T12:58:40.415Z"
     },
     {
       "id": "reel2-duel-chambourcy",
