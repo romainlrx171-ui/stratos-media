@@ -1,11 +1,15 @@
 // Publie sur Instagram les posts dus de scheduler/queue.json.
 // Lancé toutes les 10 min par .github/workflows/publish-instagram.yml (PC de Romain inutile).
 // DRY_RUN=1 : crée les conteneurs mais ne publie rien et ne modifie pas la file.
+// Chaque post part aussi sur la page Facebook (sauf "facebook": false) et porte le lieu
+// de la page (Saint-Germain-en-Laye) sauf "instagram.locationId": null.
+// Texte alternatif optionnel : instagram.altText (image seule) ou instagram.altTexts[] (carrousel).
 import fs from "node:fs";
 
 const QUEUE = new URL("./queue.json", import.meta.url);
 const G = "https://graph.facebook.com/v25.0";
 const IG = "17841480595174504";
+const PAGE = "1024824487379881"; // page Facebook Stratos, porte l'adresse du centre
 const TOKEN = process.env.IG_PAGE_TOKEN;
 const DRY = process.env.DRY_RUN === "1";
 const ONLY = process.env.ONLY_ID || "";
@@ -33,24 +37,57 @@ async function waitReady(id) {
   throw new Error(`conteneur ${id} : délai dépassé`);
 }
 
+// Ajoute les champs optionnels sans jamais envoyer de valeur vide.
+function extras(ig, altText) {
+  const out = {};
+  const loc = ig.locationId === undefined ? PAGE : ig.locationId;
+  if (loc) out.location_id = loc;
+  if (altText) out.alt_text = altText;
+  return out;
+}
+
 async function createContainer(ig) {
   if (ig.videoUrl) {
-    const { id } = await api("POST", `${IG}/media`, { media_type: "REELS", video_url: ig.videoUrl, caption: ig.caption });
+    const { id } = await api("POST", `${IG}/media`, { media_type: "REELS", video_url: ig.videoUrl, caption: ig.caption, ...extras(ig) });
     await waitReady(id);
     return id;
   }
   if (ig.imageUrls.length === 1) {
-    const { id } = await api("POST", `${IG}/media`, { image_url: ig.imageUrls[0], caption: ig.caption });
+    const { id } = await api("POST", `${IG}/media`, { image_url: ig.imageUrls[0], caption: ig.caption, ...extras(ig, ig.altText) });
     await waitReady(id);
     return id;
   }
   const children = [];
-  for (const url of ig.imageUrls) {
-    const { id } = await api("POST", `${IG}/media`, { image_url: url, is_carousel_item: "true" });
+  for (const [i, url] of ig.imageUrls.entries()) {
+    const alt = ig.altTexts?.[i];
+    const { id } = await api("POST", `${IG}/media`, { image_url: url, is_carousel_item: "true", ...(alt ? { alt_text: alt } : {}) });
     children.push(id);
   }
-  const { id } = await api("POST", `${IG}/media`, { media_type: "CAROUSEL", children: children.join(","), caption: ig.caption });
+  const { id } = await api("POST", `${IG}/media`, { media_type: "CAROUSEL", children: children.join(","), caption: ig.caption, ...extras(ig) });
   await waitReady(id);
+  return id;
+}
+
+// Même contenu sur la page Facebook : reel → Reel Facebook, image(s) → post photo.
+async function publishFacebook(ig) {
+  if (ig.videoUrl) {
+    const { video_id, upload_url } = await api("POST", `${PAGE}/video_reels`, { upload_phase: "start" });
+    const up = await fetch(upload_url, { method: "POST", headers: { Authorization: `OAuth ${TOKEN}`, file_url: ig.videoUrl } });
+    const upJson = await up.json();
+    if (!upJson.success) throw new Error(`upload reel Facebook : ${JSON.stringify(upJson)}`);
+    await api("POST", `${PAGE}/video_reels`, { upload_phase: "finish", video_id, video_state: "PUBLISHED", description: ig.caption });
+    return video_id;
+  }
+  if (ig.imageUrls.length === 1) {
+    const { post_id, id } = await api("POST", `${PAGE}/photos`, { url: ig.imageUrls[0], caption: ig.caption });
+    return post_id || id;
+  }
+  const media = {};
+  for (const [i, url] of ig.imageUrls.entries()) {
+    const { id } = await api("POST", `${PAGE}/photos`, { url, published: "false" });
+    media[`attached_media[${i}]`] = JSON.stringify({ media_fbid: id });
+  }
+  const { id } = await api("POST", `${PAGE}/feed`, { message: ig.caption, ...media });
   return id;
 }
 
@@ -81,6 +118,7 @@ for (const post of due) {
       const { id } = await api("POST", `${IG}/media_publish`, { creation_id: container });
       const { permalink } = await api("GET", id, { fields: "permalink" });
       Object.assign(post, { status: "published", mediaId: id, permalink, publishedAt: new Date().toISOString() });
+      if (post.facebook !== false) post.facebook = { status: "pending" };
       console.log(`  PUBLIÉ : ${permalink}`);
     }
   } catch (e) {
@@ -92,4 +130,20 @@ for (const post of due) {
     }
   }
   if (!DRY) fs.writeFileSync(QUEUE, JSON.stringify(queue, null, 2) + "\n");
+}
+
+// Facebook après Instagram : un échec ici ne touche jamais au statut Instagram.
+const fbDue = DRY ? [] : queue.posts.filter((p) => p.facebook?.status === "pending" && (!ONLY || p.id === ONLY));
+for (const post of fbDue) {
+  try {
+    const id = await publishFacebook(post.instagram);
+    Object.assign(post.facebook, { status: "published", id, publishedAt: new Date().toISOString() });
+    console.log(`${post.id} : Facebook PUBLIÉ (${id})`);
+  } catch (e) {
+    console.log(`${post.id} : Facebook ÉCHEC : ${e.message}`);
+    post.facebook.attempts = (post.facebook.attempts || 0) + 1;
+    post.facebook.lastError = e.message;
+    if (post.facebook.attempts >= 3) post.facebook.status = "failed";
+  }
+  fs.writeFileSync(QUEUE, JSON.stringify(queue, null, 2) + "\n");
 }
