@@ -4,6 +4,7 @@
 // Chaque post part aussi sur la page Facebook (sauf "facebook": false) et porte le lieu
 // de la page (Saint-Germain-en-Laye) sauf "instagram.locationId": null.
 // Texte alternatif optionnel : instagram.altText (image seule) ou instagram.altTexts[] (carrousel).
+// Carrousel avec vidéos : instagram.carouselItems[] (voir createContainer) ; Facebook garde imageUrls.
 import fs from "node:fs";
 
 const QUEUE = new URL("./queue.json", import.meta.url);
@@ -57,10 +58,17 @@ async function createContainer(ig) {
     await waitReady(id);
     return id;
   }
+  // Carrousel mixte photos + vidéos : instagram.carouselItems[] = { imageUrl } | { videoUrl }.
+  // Sans carouselItems, imageUrls sert de carrousel (photos seules). imageUrls reste utilisé pour Facebook.
+  const items = ig.carouselItems || ig.imageUrls.map((imageUrl) => ({ imageUrl }));
   const children = [];
-  for (const [i, url] of ig.imageUrls.entries()) {
+  for (const [i, item] of items.entries()) {
     const alt = ig.altTexts?.[i];
-    const { id } = await api("POST", `${IG}/media`, { image_url: url, is_carousel_item: "true", ...(alt ? { alt_text: alt } : {}) });
+    const media = item.videoUrl
+      ? { media_type: "VIDEO", video_url: item.videoUrl }
+      : { image_url: item.imageUrl, ...(alt ? { alt_text: alt } : {}) };
+    const { id } = await api("POST", `${IG}/media`, { ...media, is_carousel_item: "true" });
+    if (item.videoUrl) await waitReady(id);
     children.push(id);
   }
   const { id } = await api("POST", `${IG}/media`, { media_type: "CAROUSEL", children: children.join(","), caption: ig.caption, ...extras(ig) });
