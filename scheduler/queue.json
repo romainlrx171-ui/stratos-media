@@ -102,7 +102,7 @@
       "id": "carrousel-freinage-degressif",
       "title": "Carrousel freinage dégressif (10 slides, validé 26/10)",
       "publishAt": "2026-10-27T00:00:00+01:00",
-      "status": "scheduled",
+      "status": "published",
       "instagram": {
         "imageUrls": [
           "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-10-27/carrousel-freinage-degressif/slide-01.jpg",
@@ -117,6 +117,14 @@
           "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-10-27/carrousel-freinage-degressif/slide-10.jpg"
         ],
         "caption": "Tu freines. Tu relâches. Puis tu tournes. Entre les deux, ta voiture ne fait rien, et ton chrono s'envole.\nLes pilotes font autrement : ils freinent fort tant qu'ils sont droits, puis ils relâchent la pédale doucement pendant qu'ils tournent. Le poids reste sur l'avant, et la voiture tourne vraiment.\nMon conseil : travaille le dégressif, pas le freinage. Un seul virage, toujours le même.\nEnregistre ce post avant ta prochaine séance, et identifie le pote qui freine encore, puis tourne 👇\n#simracing #pilotage #freinage #trailbraking #iracing #stratosacademie"
+      },
+      "mediaId": "18106313162195691",
+      "permalink": "https://www.instagram.com/p/DfAgJFpAUWI/",
+      "publishedAt": "2026-10-27T18:29:02.975Z",
+      "facebook": {
+        "status": "published",
+        "id": "1024824487379881_122125911441161787",
+        "publishedAt": "2026-10-27T18:29:24.749Z"
       }
     }
   ]
