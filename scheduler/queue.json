@@ -320,6 +320,169 @@
         "id": "2645163005943730",
         "publishedAt": "2026-11-05T18:16:24.139Z"
       }
+    },
+    {
+      "id": "tournage-f1",
+      "title": "Reel F1, Pourquoi j'ai créé Stratos (à épingler)",
+      "publishAt": "2026-11-06T12:00:00+01:00",
+      "status": "scheduled",
+      "instagram": {
+        "caption": "Pourquoi avoir créé Stratos Académie ? Parce que le simulateur est devenu l'environnement de travail principal des pilotes professionnels. Notre objectif : mettre ces outils à disposition du plus grand nombre. Stratos Académie, Saint-Germain-en-Laye.\n\n#simracing #pilotage #saintgermainenlaye",
+        "videoUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-tournage/f1-pourquoi-stratos.mp4"
+      }
+    },
+    {
+      "id": "meme-s5-permis",
+      "title": "Mème S5 Permis, reel avec musique (GO Romain du 04/11)",
+      "publishAt": "2026-11-06T18:00:00+01:00",
+      "status": "scheduled",
+      "instagram": {
+        "caption": "Pas de permis, pas de problème.",
+        "videoUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-tournage/meme-s5-permis.mp4"
+      }
+    },
+    {
+      "id": "meme-g3-sensations",
+      "title": "Mème G3 Sensations pas cher, reel avec musique (GO Romain du 04/11, légende d'origine)",
+      "publishAt": "2026-11-07T12:00:00+01:00",
+      "status": "scheduled",
+      "instagram": {
+        "caption": "Tes reins te remercient.",
+        "videoUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-tournage/meme-g3-sensations.mp4"
+      }
+    },
+    {
+      "id": "tournage-c1",
+      "title": "Reel C1, Un pilote pro essaie de faire sa pub",
+      "publishAt": "2026-11-07T18:00:00+01:00",
+      "status": "scheduled",
+      "instagram": {
+        "caption": "Je suis pilote. Pas acteur.\n\n#simracing #coulisses #saintgermainenlaye",
+        "videoUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-tournage/c1-coulisses.mp4"
+      }
+    },
+    {
+      "id": "tournage-p1",
+      "title": "Reel P1, Et si je suis nul ?",
+      "publishAt": "2026-11-08T12:00:00+01:00",
+      "status": "scheduled",
+      "instagram": {
+        "caption": "« Et si je suis nul ? » Beaucoup arrivent sans savoir conduire. On te guide du début à la fin, et ton chrono te montre le reste. Piloter une voiture de course sur simulateur pro, à Saint-Germain-en-Laye.\n\n#simracing #pilotage #saintgermainenlaye",
+        "videoUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-tournage/p1-et-si-je-suis-nul.mp4",
+        "thumbOffset": 500
+      }
+    },
+    {
+      "id": "tournage-t2",
+      "title": "Reel T2, Manette ou volant",
+      "publishAt": "2026-11-08T18:00:00+01:00",
+      "status": "scheduled",
+      "instagram": {
+        "caption": "Manette ou volant ? Pour moi, le débat n'existe même pas. Et toi, tu joues avec quoi ?\n\n#simracing #pilotage #saintgermainenlaye",
+        "videoUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-tournage/t2-manette-volant.mp4"
+      }
+    },
+    {
+      "id": "tournage-b3",
+      "title": "Reel B3, Pas forcément l'équipe la plus rapide",
+      "publishAt": "2026-11-09T12:00:00+01:00",
+      "status": "scheduled",
+      "instagram": {
+        "caption": "Dans nos courses en relais, les équipes sont équilibrées au briefing. Ensuite, ce n'est pas forcément la plus rapide qui gagne : la clé, c'est de ne faire aucune erreur. Stratos Académie, Saint-Germain-en-Laye.\n\n#simracing #teambuilding #saintgermainenlaye",
+        "videoUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-tournage/b3-equipe-rapide.mp4"
+      }
+    },
+    {
+      "id": "tournage-s3",
+      "title": "Reel S3, Les premiers tours, pas sur la piste",
+      "publishAt": "2026-11-09T18:00:00+01:00",
+      "status": "scheduled",
+      "instagram": {
+        "caption": "Nouveau circuit : mes premiers tours, je ne les fais pas en voiture.\n\n#simracing #pilotage #saintgermainenlaye",
+        "videoUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-tournage/s3-premiers-tours.mp4"
+      }
+    },
+    {
+      "id": "tournage-f2",
+      "title": "Reel F2, Pourquoi Académie",
+      "publishAt": "2026-11-10T12:00:00+01:00",
+      "status": "scheduled",
+      "instagram": {
+        "caption": "Pourquoi « Académie » ? Parce que nous offrons des expériences au plus grand nombre, et parce que nous voulons aussi développer les futurs pilotes. Stratos Académie, Saint-Germain-en-Laye.\n\n#simracing #pilotage #saintgermainenlaye",
+        "videoUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-tournage/f2-academie.mp4"
+      }
+    },
+    {
+      "id": "tournage-s4",
+      "title": "Reel S4, 90 % et ce qui manque",
+      "publishAt": "2026-11-10T18:00:00+01:00",
+      "status": "scheduled",
+      "instagram": {
+        "caption": "90 % des sensations. Il manque le mouvement de la voiture. Mais freiner et s'adapter, ça se fait de la même façon.\n\n#simracing #pilotage #saintgermainenlaye",
+        "videoUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-tournage/s4-90-pourcent.mp4"
+      }
+    },
+    {
+      "id": "tournage-p2",
+      "title": "Reel P2, Je cours en Ferrari GT3",
+      "publishAt": "2026-11-11T12:00:00+01:00",
+      "status": "scheduled",
+      "instagram": {
+        "caption": "Le volant qui tire, les pédales où il faut appuyer, le chrono qui descend. Je l'ai mis ici. Pas besoin d'avoir été pilote.\n\n#simracing #pilotage #saintgermainenlaye",
+        "videoUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-tournage/p2-ferrari-gt3.mp4"
+      }
+    },
+    {
+      "id": "tournage-s5",
+      "title": "Reel S5, De 5 tours à 2 tours",
+      "publishAt": "2026-11-11T18:00:00+01:00",
+      "status": "scheduled",
+      "instagram": {
+        "caption": "5 tours pour trouver mes repères, ou 2. Voilà ce que ça change, une séance ici avant une course.\n\n#simracing #pilotage #saintgermainenlaye",
+        "videoUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-tournage/s5-5-tours-2-tours.mp4"
+      }
+    },
+    {
+      "id": "tournage-p3",
+      "title": "Story P3, 90 % en quelques secondes (Instagram seul par le robot)",
+      "publishAt": "2026-11-12T12:00:00+01:00",
+      "status": "scheduled",
+      "instagram": {
+        "caption": "90 % des sensations d'une vraie voiture de course. À Saint-Germain-en-Laye.",
+        "videoUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-tournage/p3-90-pourcent-story.mp4",
+        "story": true
+      },
+      "facebook": false
+    },
+    {
+      "id": "tournage-s2",
+      "title": "Reel S2, 10 fois plus de temps sur simu",
+      "publishAt": "2026-11-12T18:00:00+01:00",
+      "status": "scheduled",
+      "instagram": {
+        "caption": "10 fois plus de temps sur simu qu'en voiture. C'est le quotidien d'un pilote pro aujourd'hui.\n\n#simracing #pilotage #saintgermainenlaye",
+        "videoUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-tournage/s2-10-fois.mp4"
+      }
+    },
+    {
+      "id": "tournage-t1",
+      "title": "Reel T1, Karting (EN ATTENTE : droits de la photo de kart, à confirmer par Romain)",
+      "publishAt": "2026-11-13T12:00:00+01:00",
+      "status": "attente-romain",
+      "instagram": {
+        "caption": "« J'ai fait du karting, je gère. » Certains sont très bons très vite. D'autres finissent loin derrière des gens qui n'ont fait que du simu. Envoie ça à ton pote qui sort cette phrase à chaque fois.\n\n#simracing #karting #saintgermainenlaye",
+        "videoUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-tournage/t1-karting.mp4"
+      }
+    },
+    {
+      "id": "tournage-t4",
+      "title": "Reel T4, Prochains pilotes (EN ATTENTE : droits de la photo de kart, à confirmer par Romain)",
+      "publishAt": "2026-11-13T18:00:00+01:00",
+      "status": "attente-romain",
+      "instagram": {
+        "caption": "Ma conviction : les prochains pilotes pros viendront du simulateur. Et pourtant, moi, j'ai commencé par le kart à 13 ans. Tu es d'accord ou pas ?\n\n#simracing #karting #saintgermainenlaye",
+        "videoUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-tournage/t4-prochains-pilotes.mp4"
+      }
     }
   ]
 }

@@ -48,8 +48,15 @@ function extras(ig, altText) {
 }
 
 async function createContainer(ig) {
+  // Story vidéo : instagram.story = true (pas de légende, pas de sticker par l'API).
+  if (ig.story) {
+    const { id } = await api("POST", `${IG}/media`, { media_type: "STORIES", video_url: ig.videoUrl });
+    await waitReady(id);
+    return id;
+  }
   if (ig.videoUrl) {
-    const { id } = await api("POST", `${IG}/media`, { media_type: "REELS", video_url: ig.videoUrl, caption: ig.caption, ...extras(ig) });
+    // Couverture : instagram.thumbOffset = instant en millisecondes.
+    const { id } = await api("POST", `${IG}/media`, { media_type: "REELS", video_url: ig.videoUrl, caption: ig.caption, ...(ig.thumbOffset ? { thumb_offset: String(ig.thumbOffset) } : {}), ...extras(ig) });
     await waitReady(id);
     return id;
   }
@@ -108,8 +115,12 @@ async function alreadyLive(caption) {
 
 const queue = JSON.parse(fs.readFileSync(QUEUE, "utf-8"));
 const now = Date.now();
-const due = queue.posts.filter((p) =>
-  p.status === "scheduled" && (ONLY ? p.id === ONLY : new Date(p.publishAt).getTime() <= now));
+const dus = queue.posts
+  .filter((p) => p.status === "scheduled" && (ONLY ? p.id === ONLY : new Date(p.publishAt).getTime() <= now))
+  .sort((a, b) => new Date(a.publishAt) - new Date(b.publishAt));
+// Un seul post par passage : GitHub reste parfois 8 h sans lancer le robot, et deux posts en retard
+// partiraient sinon à la même minute. Le suivant part au passage d'après.
+const due = ONLY ? dus : dus.slice(0, 1);
 
 if (!due.length) console.log("Rien à publier.");
 
@@ -124,7 +135,8 @@ for (const post of due) {
       const container = await createContainer(post.instagram);
       if (DRY) { console.log(`  OK, conteneur ${container} prêt (non publié)`); continue; }
       const { id } = await api("POST", `${IG}/media_publish`, { creation_id: container });
-      const { permalink } = await api("GET", id, { fields: "permalink" });
+      // Déjà publié ici : une erreur de lecture du lien ne doit jamais relancer une publication.
+      const permalink = await api("GET", id, { fields: "permalink" }).then((r) => r.permalink || "").catch(() => "");
       Object.assign(post, { status: "published", mediaId: id, permalink, publishedAt: new Date().toISOString() });
       if (post.facebook !== false) post.facebook = { status: "pending" };
       console.log(`  PUBLIÉ : ${permalink}`);
