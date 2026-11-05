@@ -302,6 +302,16 @@
         "id": "1468350278540558",
         "publishedAt": "2026-11-04T16:05:16.588Z"
       }
+    },
+    {
+      "id": "tournage-s1",
+      "title": "Reel S1, 30 tours contre 1 000 (tournage du 03/11, demandé par Romain pour ce soir le 05/11)",
+      "publishAt": "2026-11-05T19:20:00+01:00",
+      "status": "scheduled",
+      "instagram": {
+        "caption": "Un week-end de course : 30 tours avant la qualif, pas le droit d'essayer. Sur simu : 1 000 tours, et tu peux mettre la voiture dans le mur. Envoie ça à ton pote qui finit toujours dans le mur.\n\n#simracing #pilotage #saintgermainenlaye",
+        "videoUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-tournage/s1-30-tours.mp4"
+      }
     }
   ]
 }
