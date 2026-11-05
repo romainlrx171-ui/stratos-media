@@ -466,9 +466,9 @@
     },
     {
       "id": "tournage-t1",
-      "title": "Reel T1, Karting (EN ATTENTE : droits de la photo de kart, à confirmer par Romain)",
+      "title": "Reel T1, Karting (droits de la photo confirmés par Romain le 05/11)",
       "publishAt": "2026-11-13T12:00:00+01:00",
-      "status": "attente-romain",
+      "status": "scheduled",
       "instagram": {
         "caption": "« J'ai fait du karting, je gère. » Certains sont très bons très vite. D'autres finissent loin derrière des gens qui n'ont fait que du simu. Envoie ça à ton pote qui sort cette phrase à chaque fois.\n\n#simracing #karting #saintgermainenlaye",
         "videoUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-tournage/t1-karting.mp4"
@@ -476,9 +476,9 @@
     },
     {
       "id": "tournage-t4",
-      "title": "Reel T4, Prochains pilotes (EN ATTENTE : droits de la photo de kart, à confirmer par Romain)",
+      "title": "Reel T4, Prochains pilotes (droits de la photo confirmés par Romain le 05/11)",
       "publishAt": "2026-11-13T18:00:00+01:00",
-      "status": "attente-romain",
+      "status": "scheduled",
       "instagram": {
         "caption": "Ma conviction : les prochains pilotes pros viendront du simulateur. Et pourtant, moi, j'ai commencé par le kart à 13 ans. Tu es d'accord ou pas ?\n\n#simracing #karting #saintgermainenlaye",
         "videoUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-tournage/t4-prochains-pilotes.mp4"
