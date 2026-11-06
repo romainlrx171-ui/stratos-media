@@ -343,10 +343,18 @@
       "id": "meme-s5-permis",
       "title": "Mème S5 Permis, reel avec musique (GO Romain du 04/11)",
       "publishAt": "2026-11-06T18:00:00+01:00",
-      "status": "scheduled",
+      "status": "published",
       "instagram": {
         "caption": "Pas de permis, pas de problème.",
         "videoUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-tournage/meme-s5-permis.mp4"
+      },
+      "mediaId": "18028536593864522",
+      "permalink": "https://www.instagram.com/reel/DfaF8zCDUaq/",
+      "publishedAt": "2026-11-06T17:00:42.773Z",
+      "facebook": {
+        "status": "published",
+        "id": "1824140495369663",
+        "publishedAt": "2026-11-06T17:00:50.496Z"
       }
     },
     {
