@@ -1,11 +1,14 @@
 // Publie sur Instagram les posts dus de scheduler/queue.json.
-// Lancé toutes les 10 min par .github/workflows/publish-instagram.yml (PC de Romain inutile).
+// Lancé par .github/workflows/publish-instagram.yml (PC de Romain inutile).
+// GitHub ne lance le robot que quelques fois par jour : à chaque lancement, il publie ce qui est dû,
+// puis attend l'heure du post suivant tant qu'elle tombe dans les 5 h 20 du passage, et l'enregistre au fil de l'eau.
 // DRY_RUN=1 : crée les conteneurs mais ne publie rien et ne modifie pas la file.
 // Chaque post part aussi sur la page Facebook (sauf "facebook": false) et porte le lieu
 // de la page (Saint-Germain-en-Laye) sauf "instagram.locationId": null.
 // Texte alternatif optionnel : instagram.altText (image seule) ou instagram.altTexts[] (carrousel).
 // Carrousel avec vidéos : instagram.carouselItems[] (voir createContainer) ; Facebook garde imageUrls.
 import fs from "node:fs";
+import { execSync } from "node:child_process";
 
 const QUEUE = new URL("./queue.json", import.meta.url);
 const G = "https://graph.facebook.com/v25.0";
@@ -14,6 +17,10 @@ const PAGE = "1024824487379881"; // page Facebook Stratos, porte l'adresse du ce
 const TOKEN = process.env.IG_PAGE_TOKEN;
 const DRY = process.env.DRY_RUN === "1";
 const ONLY = process.env.ONLY_ID || "";
+const SUR_GITHUB = !!process.env.GITHUB_ACTIONS;
+const DEBUT = Date.now();
+const FENETRE = 320 * 60 * 1000; // le job GitHub est coupé à 6 h : on ne vise rien au-delà de 5 h 20
+const ECART = 45 * 60 * 1000;    // au moins 45 min entre deux tentatives d'un même passage
 
 if (!TOKEN) throw new Error("IG_PAGE_TOKEN manquant");
 
@@ -113,57 +120,95 @@ async function alreadyLive(caption) {
   return data.find((m) => (m.caption || "").startsWith(head));
 }
 
-const queue = JSON.parse(fs.readFileSync(QUEUE, "utf-8"));
-const now = Date.now();
-const dus = queue.posts
-  .filter((p) => p.status === "scheduled" && (ONLY ? p.id === ONLY : new Date(p.publishAt).getTime() <= now))
-  .sort((a, b) => new Date(a.publishAt) - new Date(b.publishAt));
-// Un seul post par passage : GitHub reste parfois 8 h sans lancer le robot, et deux posts en retard
-// partiraient sinon à la même minute. Le suivant part au passage d'après.
-const due = ONLY ? dus : dus.slice(0, 1);
-
-if (!due.length) console.log("Rien à publier.");
-
-for (const post of due) {
-  console.log(`\n${post.id} (${post.publishAt})${DRY ? " [DRY RUN]" : ""}`);
-  try {
-    const live = await alreadyLive(post.instagram.caption);
-    if (live) {
-      console.log(`  déjà en ligne : ${live.permalink}`);
-      if (!DRY) Object.assign(post, { status: "published", mediaId: live.id, permalink: live.permalink, publishedAt: new Date().toISOString() });
-    } else {
-      const container = await createContainer(post.instagram);
-      if (DRY) { console.log(`  OK, conteneur ${container} prêt (non publié)`); continue; }
-      const { id } = await api("POST", `${IG}/media_publish`, { creation_id: container });
-      // Déjà publié ici : une erreur de lecture du lien ne doit jamais relancer une publication.
-      const permalink = await api("GET", id, { fields: "permalink" }).then((r) => r.permalink || "").catch(() => "");
-      Object.assign(post, { status: "published", mediaId: id, permalink, publishedAt: new Date().toISOString() });
-      if (post.facebook !== false) post.facebook = { status: "pending" };
-      console.log(`  PUBLIÉ : ${permalink}`);
-    }
-  } catch (e) {
-    console.log(`  ÉCHEC : ${e.message}`);
-    if (!DRY) {
-      post.attempts = (post.attempts || 0) + 1;
-      post.lastError = e.message;
-      if (post.attempts >= 3) post.status = "failed";
-    }
-  }
-  if (!DRY) fs.writeFileSync(QUEUE, JSON.stringify(queue, null, 2) + "\n");
+function git(cmd) {
+  try { execSync(cmd, { stdio: "inherit" }); } catch (e) { console.log(`  git : ${String(e.message).split("\n")[0]}`); }
 }
 
-// Facebook après Instagram : un échec ici ne touche jamais au statut Instagram.
-const fbDue = DRY ? [] : queue.posts.filter((p) => p.facebook?.status === "pending" && (!ONLY || p.id === ONLY));
-for (const post of fbDue) {
-  try {
-    const id = await publishFacebook(post.instagram);
-    Object.assign(post.facebook, { status: "published", id, publishedAt: new Date().toISOString() });
-    console.log(`${post.id} : Facebook PUBLIÉ (${id})`);
-  } catch (e) {
-    console.log(`${post.id} : Facebook ÉCHEC : ${e.message}`);
-    post.facebook.attempts = (post.facebook.attempts || 0) + 1;
-    post.facebook.lastError = e.message;
-    if (post.facebook.attempts >= 3) post.facebook.status = "failed";
+// Sur GitHub : reprend la file à jour avant chaque passage, et pousse l'état après.
+function synchroniser() {
+  if (!DRY && SUR_GITHUB) git("git pull -q --rebase");
+}
+
+function enregistrer() {
+  if (DRY || !SUR_GITHUB) return;
+  git("git add scheduler/queue.json");
+  git('git diff --cached --quiet || (git -c user.name="stratos-bot" -c user.email="stratos-bot@users.noreply.github.com" commit -q -m "scheduler: état de publication" && git pull -q --rebase && git push -q)');
+}
+
+let queue = null;
+let derniere = 0; // heure de la dernière tentative de publication de ce lancement
+
+async function passage() {
+  synchroniser();
+  queue = JSON.parse(fs.readFileSync(QUEUE, "utf-8"));
+  const now = Date.now();
+  const dus = queue.posts
+    .filter((p) => p.status === "scheduled" && (ONLY ? p.id === ONLY : new Date(p.publishAt).getTime() <= now))
+    .sort((a, b) => new Date(a.publishAt) - new Date(b.publishAt));
+  // Un seul post par passage : deux posts en retard ne partent jamais à la même minute.
+  const due = ONLY ? dus : dus.slice(0, 1);
+
+  if (!due.length) console.log("Rien à publier.");
+
+  for (const post of due) {
+    console.log(`\n${post.id} (${post.publishAt})${DRY ? " [DRY RUN]" : ""}`);
+    derniere = Date.now();
+    try {
+      const live = await alreadyLive(post.instagram.caption);
+      if (live) {
+        console.log(`  déjà en ligne : ${live.permalink}`);
+        if (!DRY) Object.assign(post, { status: "published", mediaId: live.id, permalink: live.permalink, publishedAt: new Date().toISOString() });
+      } else {
+        const container = await createContainer(post.instagram);
+        if (DRY) { console.log(`  OK, conteneur ${container} prêt (non publié)`); continue; }
+        const { id } = await api("POST", `${IG}/media_publish`, { creation_id: container });
+        // Déjà publié ici : une erreur de lecture du lien ne doit jamais relancer une publication.
+        const permalink = await api("GET", id, { fields: "permalink" }).then((r) => r.permalink || "").catch(() => "");
+        Object.assign(post, { status: "published", mediaId: id, permalink, publishedAt: new Date().toISOString() });
+        if (post.facebook !== false) post.facebook = { status: "pending" };
+        console.log(`  PUBLIÉ : ${permalink}`);
+      }
+    } catch (e) {
+      console.log(`  ÉCHEC : ${e.message}`);
+      if (!DRY) {
+        post.attempts = (post.attempts || 0) + 1;
+        post.lastError = e.message;
+        if (post.attempts >= 3) post.status = "failed";
+      }
+    }
+    if (!DRY) fs.writeFileSync(QUEUE, JSON.stringify(queue, null, 2) + "\n");
   }
-  fs.writeFileSync(QUEUE, JSON.stringify(queue, null, 2) + "\n");
+
+  // Facebook après Instagram : un échec ici ne touche jamais au statut Instagram.
+  const fbDue = DRY ? [] : queue.posts.filter((p) => p.facebook?.status === "pending" && (!ONLY || p.id === ONLY));
+  for (const post of fbDue) {
+    try {
+      const id = await publishFacebook(post.instagram);
+      Object.assign(post.facebook, { status: "published", id, publishedAt: new Date().toISOString() });
+      console.log(`${post.id} : Facebook PUBLIÉ (${id})`);
+    } catch (e) {
+      console.log(`${post.id} : Facebook ÉCHEC : ${e.message}`);
+      post.facebook.attempts = (post.facebook.attempts || 0) + 1;
+      post.facebook.lastError = e.message;
+      if (post.facebook.attempts >= 3) post.facebook.status = "failed";
+    }
+    fs.writeFileSync(QUEUE, JSON.stringify(queue, null, 2) + "\n");
+  }
+  enregistrer();
+}
+
+await passage();
+
+// Attend l'heure du post suivant tant qu'elle tombe dans la fenêtre de ce lancement.
+while (!ONLY && !DRY) {
+  const dates = queue.posts.filter((p) => p.status === "scheduled").map((p) => new Date(p.publishAt).getTime()).sort((a, b) => a - b);
+  if (!dates.length) break;
+  const cible = Math.max(dates[0], derniere ? derniere + ECART : 0, Date.now());
+  if (cible > DEBUT + FENETRE) {
+    console.log(`\nProchain post le ${new Date(dates[0]).toISOString()} : pour un lancement suivant.`);
+    break;
+  }
+  console.log(`\nJ'attends ${Math.round((cible - Date.now()) / 60000)} min, jusqu'à ${new Date(cible).toISOString()}.`);
+  await new Promise((r) => setTimeout(r, Math.max(0, cible - Date.now()) + 5000));
+  await passage();
 }
