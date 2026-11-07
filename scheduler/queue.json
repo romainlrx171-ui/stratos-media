@@ -361,10 +361,18 @@
       "id": "meme-g3-sensations",
       "title": "Mème G3 Sensations pas cher, reel avec musique (GO Romain du 04/11, légende d'origine)",
       "publishAt": "2026-11-07T12:00:00+01:00",
-      "status": "scheduled",
+      "status": "published",
       "instagram": {
         "caption": "Tes reins te remercient.",
         "videoUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-tournage/meme-g3-sensations.mp4"
+      },
+      "mediaId": "18126256295474463",
+      "permalink": "https://www.instagram.com/reel/DfcBi8wESFg/",
+      "publishedAt": "2026-11-07T11:00:43.969Z",
+      "facebook": {
+        "status": "published",
+        "id": "1860908041579559",
+        "publishedAt": "2026-11-07T11:00:51.631Z"
       }
     },
     {
