@@ -379,10 +379,18 @@
       "id": "tournage-c1",
       "title": "Reel C1, Un pilote pro essaie de faire sa pub",
       "publishAt": "2026-11-07T18:00:00+01:00",
-      "status": "scheduled",
+      "status": "published",
       "instagram": {
         "caption": "Je suis pilote. Pas acteur.\n\n#simracing #coulisses #saintgermainenlaye",
         "videoUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-tournage/c1-coulisses.mp4"
+      },
+      "mediaId": "18135517036688584",
+      "permalink": "https://www.instagram.com/reel/Dfcq08wlSSf/",
+      "publishedAt": "2026-11-07T17:01:37.666Z",
+      "facebook": {
+        "status": "published",
+        "id": "1475792548023810",
+        "publishedAt": "2026-11-07T17:02:02.467Z"
       }
     },
     {
