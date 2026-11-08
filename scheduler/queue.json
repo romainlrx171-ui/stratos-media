@@ -397,11 +397,19 @@
       "id": "tournage-p1",
       "title": "Reel P1, Et si je suis nul ?",
       "publishAt": "2026-11-08T12:00:00+01:00",
-      "status": "scheduled",
+      "status": "published",
       "instagram": {
         "caption": "« Et si je suis nul ? » Beaucoup arrivent sans savoir conduire. On te guide du début à la fin, et ton chrono te montre le reste. Piloter une voiture de course sur simulateur pro, à Saint-Germain-en-Laye.\n\n#simracing #pilotage #saintgermainenlaye",
         "videoUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-tournage/p1-et-si-je-suis-nul.mp4",
         "thumbOffset": 500
+      },
+      "mediaId": "17969834388193917",
+      "permalink": "https://www.instagram.com/reel/DfemV66HWlo/",
+      "publishedAt": "2026-11-08T11:00:43.827Z",
+      "facebook": {
+        "status": "published",
+        "id": "1151246804116832",
+        "publishedAt": "2026-11-08T11:00:54.769Z"
       }
     },
     {
