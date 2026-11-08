@@ -416,10 +416,18 @@
       "id": "tournage-t2",
       "title": "Reel T2, Manette ou volant",
       "publishAt": "2026-11-08T18:00:00+01:00",
-      "status": "scheduled",
+      "status": "published",
       "instagram": {
         "caption": "Manette ou volant ? Pour moi, le débat n'existe même pas. Et toi, tu joues avec quoi ?\n\n#simracing #pilotage #saintgermainenlaye",
         "videoUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-tournage/t2-manette-volant.mp4"
+      },
+      "mediaId": "18201773731381394",
+      "permalink": "https://www.instagram.com/reel/DffPisBDReV/",
+      "publishedAt": "2026-11-08T17:00:44.211Z",
+      "facebook": {
+        "status": "published",
+        "id": "1153395917168856",
+        "publishedAt": "2026-11-08T17:00:53.516Z"
       }
     },
     {
