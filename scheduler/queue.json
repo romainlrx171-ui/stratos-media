@@ -452,10 +452,18 @@
       "id": "tournage-s3",
       "title": "Reel S3, Les premiers tours, pas sur la piste",
       "publishAt": "2026-11-09T18:00:00+01:00",
-      "status": "scheduled",
+      "status": "published",
       "instagram": {
         "caption": "Nouveau circuit : mes premiers tours, je ne les fais pas en voiture.\n\n#simracing #pilotage #saintgermainenlaye",
         "videoUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-tournage/s3-premiers-tours.mp4"
+      },
+      "mediaId": "17913089175305046",
+      "permalink": "https://www.instagram.com/reel/DfiOquUEfu5/",
+      "publishedAt": "2026-11-09T20:50:53.689Z",
+      "facebook": {
+        "status": "published",
+        "id": "1142113754936713",
+        "publishedAt": "2026-11-09T20:51:05.788Z"
       }
     },
     {
