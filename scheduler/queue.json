@@ -470,10 +470,18 @@
       "id": "tournage-f2",
       "title": "Reel F2, Pourquoi Académie",
       "publishAt": "2026-11-10T12:00:00+01:00",
-      "status": "scheduled",
+      "status": "published",
       "instagram": {
         "caption": "Pourquoi « Académie » ? Parce que nous offrons des expériences au plus grand nombre, et parce que nous voulons aussi développer les futurs pilotes. Stratos Académie, Saint-Germain-en-Laye.\n\n#simracing #pilotage #saintgermainenlaye",
         "videoUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-tournage/f2-academie.mp4"
+      },
+      "mediaId": "18134590499494318",
+      "permalink": "https://www.instagram.com/reel/DfjwC_Nzw6c/",
+      "publishedAt": "2026-11-10T11:01:41.218Z",
+      "facebook": {
+        "status": "published",
+        "id": "4682807365322055",
+        "publishedAt": "2026-11-10T11:01:51.719Z"
       }
     },
     {
