@@ -488,10 +488,18 @@
       "id": "tournage-s4",
       "title": "Reel S4, 90 % et ce qui manque",
       "publishAt": "2026-11-10T18:00:00+01:00",
-      "status": "scheduled",
+      "status": "published",
       "instagram": {
         "caption": "90 % des sensations. Il manque le mouvement de la voiture. Mais freiner et s'adapter, ça se fait de la même façon.\n\n#simracing #pilotage #saintgermainenlaye",
         "videoUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-tournage/s4-90-pourcent.mp4"
+      },
+      "mediaId": "17973511065194177",
+      "permalink": "https://www.instagram.com/reel/DfkiAxoBiFm/",
+      "publishedAt": "2026-11-10T18:18:20.843Z",
+      "facebook": {
+        "status": "published",
+        "id": "1902903961081226",
+        "publishedAt": "2026-11-10T18:18:29.427Z"
       }
     },
     {
