@@ -506,10 +506,18 @@
       "id": "tournage-p2",
       "title": "Reel P2, Je cours en Ferrari GT3",
       "publishAt": "2026-11-11T12:00:00+01:00",
-      "status": "scheduled",
+      "status": "published",
       "instagram": {
         "caption": "Le volant qui tire, les pédales où il faut appuyer, le chrono qui descend. Je l'ai mis ici. Pas besoin d'avoir été pilote.\n\n#simracing #pilotage #saintgermainenlaye",
         "videoUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-tournage/p2-ferrari-gt3.mp4"
+      },
+      "mediaId": "18119949820778819",
+      "permalink": "https://www.instagram.com/reel/DfmUz-WRKqD/",
+      "publishedAt": "2026-11-11T11:01:29.627Z",
+      "facebook": {
+        "status": "published",
+        "id": "1135912589035985",
+        "publishedAt": "2026-11-11T11:01:39.668Z"
       }
     },
     {
