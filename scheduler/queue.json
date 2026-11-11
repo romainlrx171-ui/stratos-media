@@ -524,10 +524,18 @@
       "id": "tournage-s5",
       "title": "Reel S5, De 5 tours à 2 tours",
       "publishAt": "2026-11-11T18:00:00+01:00",
-      "status": "scheduled",
+      "status": "published",
       "instagram": {
         "caption": "5 tours pour trouver mes repères, ou 2. Voilà ce que ça change, une séance ici avant une course.\n\n#simracing #pilotage #saintgermainenlaye",
         "videoUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-tournage/s5-5-tours-2-tours.mp4"
+      },
+      "mediaId": "17978559788934977",
+      "permalink": "https://www.instagram.com/reel/DfnCJyqOZxR/",
+      "publishedAt": "2026-11-11T17:37:44.462Z",
+      "facebook": {
+        "status": "published",
+        "id": "4347932232004020",
+        "publishedAt": "2026-11-11T17:37:55.152Z"
       }
     },
     {
