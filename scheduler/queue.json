@@ -557,10 +557,18 @@
       "id": "tournage-s2",
       "title": "Reel S2, 10 fois plus de temps sur simu",
       "publishAt": "2026-11-12T18:00:00+01:00",
-      "status": "scheduled",
+      "status": "published",
       "instagram": {
         "caption": "10 fois plus de temps sur simu qu'en voiture. C'est le quotidien d'un pilote pro aujourd'hui.\n\n#simracing #pilotage #saintgermainenlaye",
         "videoUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-tournage/s2-10-fois.mp4"
+      },
+      "mediaId": "17965818330208096",
+      "permalink": "https://www.instagram.com/reel/Dfpiue6IbXt/",
+      "publishedAt": "2026-11-12T17:01:05.727Z",
+      "facebook": {
+        "status": "published",
+        "id": "1810008280215440",
+        "publishedAt": "2026-11-12T17:01:17.498Z"
       }
     },
     {
