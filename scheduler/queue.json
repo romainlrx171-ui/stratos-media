@@ -542,13 +542,16 @@
       "id": "tournage-p3",
       "title": "Story P3, 90 % en quelques secondes (Instagram seul par le robot)",
       "publishAt": "2026-11-12T12:00:00+01:00",
-      "status": "scheduled",
+      "status": "published",
       "instagram": {
         "caption": "90 % des sensations d'une vraie voiture de course. À Saint-Germain-en-Laye.",
         "videoUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-tournage/p3-90-pourcent-story.mp4",
         "story": true
       },
-      "facebook": false
+      "facebook": false,
+      "mediaId": "18063306089796281",
+      "permalink": "https://www.instagram.com/stories/stratos.academie/4028779117383761243",
+      "publishedAt": "2026-11-12T12:52:31.070Z"
     },
     {
       "id": "tournage-s2",
