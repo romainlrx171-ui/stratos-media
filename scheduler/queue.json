@@ -585,10 +585,18 @@
       "id": "tournage-t4",
       "title": "Reel T4, Prochains pilotes (droits de la photo confirmés par Romain le 05/11)",
       "publishAt": "2026-11-13T18:00:00+01:00",
-      "status": "scheduled",
+      "status": "published",
       "instagram": {
         "caption": "Ma conviction : les prochains pilotes pros viendront du simulateur. Et pourtant, moi, j'ai commencé par le kart à 13 ans. Tu es d'accord ou pas ?\n\n#simracing #karting #saintgermainenlaye",
         "videoUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-tournage/t4-prochains-pilotes.mp4"
+      },
+      "mediaId": "17996053692059816",
+      "permalink": "https://www.instagram.com/reel/DfsHjrLSucv/",
+      "publishedAt": "2026-11-13T17:01:24.038Z",
+      "facebook": {
+        "status": "published",
+        "id": "39991280237184911",
+        "publishedAt": "2026-11-13T17:01:36.243Z"
       }
     }
   ]
