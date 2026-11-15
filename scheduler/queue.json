@@ -598,6 +598,27 @@
         "id": "39991280237184911",
         "publishedAt": "2026-11-13T17:01:36.243Z"
       }
+    },
+    {
+      "id": "carrousel-pilote-pro",
+      "title": "Carrousel « Plus sur simu que dans la vraie voiture » (pilote pro, 10 slides) — GO Romain 15/11, série AdvanIDe validée",
+      "publishAt": "2026-11-16T12:00:00+01:00",
+      "status": "scheduled",
+      "instagram": {
+        "imageUrls": [
+          "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-16/carrousel-pilote-pro/01-hook.jpg",
+          "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-16/carrousel-pilote-pro/02-30-tours.jpg",
+          "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-16/carrousel-pilote-pro/03-1000-tours.jpg",
+          "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-16/carrousel-pilote-pro/04-dans-le-mur.jpg",
+          "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-16/carrousel-pilote-pro/05-15-metres.jpg",
+          "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-16/carrousel-pilote-pro/06-10-fois.jpg",
+          "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-16/carrousel-pilote-pro/07-premiers-tours.jpg",
+          "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-16/carrousel-pilote-pro/08-5-tours-2-tours.jpg",
+          "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-16/carrousel-pilote-pro/09-conseil.jpg",
+          "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-16/carrousel-pilote-pro/10-en-piste.jpg"
+        ],
+        "caption": "Un pilote pro passe plus de temps sur simulateur que dans la vraie voiture.\n\nAvant la qualif, on n'a que 30 tours. Sur simu, je peux en faire 1 000 : tester ce que je ne pourrais pas tester dans la vraie vie, freiner 15 mètres plus loin, apprendre un nouveau circuit avant d'y poser les roues.\nC'est comme ça que j'arrive sur la piste avec mes repères.\n\nCe qu'on apprend ici, on l'applique en piste.\nEnregistre pour ta prochaine séance.\n\n#simracing #pilotage #saintgermainenlaye"
+      }
     }
   ]
 }
