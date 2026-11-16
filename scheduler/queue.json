@@ -662,9 +662,9 @@
     },
     {
       "id": "carrousel-l-equipement",
-      "title": "Carrousel « L'équipement change tout ? Non. » (9 slides) — série 2, même gabarit que Pilote pro ; demande de Romain 16/11 « prévois les carrousels sur les jours à venir »",
+      "title": "Carrousel « L'équipement change tout ? Non. » (9 slides) — série 2, même gabarit que Pilote pro ; demande de Romain 16/11 « prévois les carrousels sur les jours à venir » — RETIRÉ le 16/11 : Romain pas encore convaincu, non validé (ne pas publier)",
       "publishAt": "2026-11-19T12:00:00+01:00",
-      "status": "scheduled",
+      "status": "paused",
       "instagram": {
         "imageUrls": [
           "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-19/carrousel-l-equipement/01-accroche.jpg",
