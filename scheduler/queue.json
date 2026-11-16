@@ -700,6 +700,123 @@
         ],
         "caption": "Pilote pro, pourquoi ai-je ouvert un centre de simulateurs ?\n\nJ'ai la chance de piloter en GT3. Je passe plus de temps sur simulateur que dans la vraie voiture : c'est là que j'apprends les circuits et que je prépare mes courses. Avec Stratos Académie, j'ouvre ce matériel à tout le monde : pas besoin d'être pilote, dès 10 ans.\n\nEnregistre pour ta prochaine séance.\n\n#simracing #pilotage #saintgermainenlaye"
       }
+    },
+    {
+      "id": "story-courses-1611-01",
+      "title": "Story vidéo « Ton premier tour commence ici » — demande de Romain 16/11 : annoncer les courses + vidéos qui donnent envie",
+      "publishAt": "2026-11-16T13:01:00+01:00",
+      "status": "scheduled",
+      "instagram": {
+        "story": true,
+        "caption": "[story story-courses-1611-01] Story vidéo « Ton premier tour commence ici »",
+        "videoUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-16/stories-courses/1-ton-premier-tour.mp4",
+        "imageUrls": []
+      },
+      "facebook": false
+    },
+    {
+      "id": "story-courses-1611-02",
+      "title": "Story Courses 1/6 Chaque mois — demande de Romain 16/11 : annoncer les courses + vidéos qui donnent envie",
+      "publishAt": "2026-11-16T13:02:00+01:00",
+      "status": "scheduled",
+      "instagram": {
+        "story": true,
+        "caption": "[story story-courses-1611-02] Story Courses 1/6 Chaque mois",
+        "imageUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-16/stories-courses/01-chaque-mois.jpg",
+        "imageUrls": []
+      },
+      "facebook": false
+    },
+    {
+      "id": "story-courses-1611-03",
+      "title": "Story Courses 2/6 Une vraie course — demande de Romain 16/11 : annoncer les courses + vidéos qui donnent envie",
+      "publishAt": "2026-11-16T13:03:00+01:00",
+      "status": "scheduled",
+      "instagram": {
+        "story": true,
+        "caption": "[story story-courses-1611-03] Story Courses 2/6 Une vraie course",
+        "imageUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-16/stories-courses/02-une-vraie-course.jpg",
+        "imageUrls": []
+      },
+      "facebook": false
+    },
+    {
+      "id": "story-courses-1611-04",
+      "title": "Story Courses 3/6 Championnat Junior — demande de Romain 16/11 : annoncer les courses + vidéos qui donnent envie",
+      "publishAt": "2026-11-16T13:04:00+01:00",
+      "status": "scheduled",
+      "instagram": {
+        "story": true,
+        "caption": "[story story-courses-1611-04] Story Courses 3/6 Championnat Junior",
+        "imageUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-16/stories-courses/03-course-junior.jpg",
+        "imageUrls": []
+      },
+      "facebook": false
+    },
+    {
+      "id": "story-courses-1611-05",
+      "title": "Story Courses 4/6 Race Night — demande de Romain 16/11 : annoncer les courses + vidéos qui donnent envie",
+      "publishAt": "2026-11-16T13:05:00+01:00",
+      "status": "scheduled",
+      "instagram": {
+        "story": true,
+        "caption": "[story story-courses-1611-05] Story Courses 4/6 Race Night",
+        "imageUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-16/stories-courses/04-race-night.jpg",
+        "imageUrls": []
+      },
+      "facebook": false
+    },
+    {
+      "id": "story-courses-1611-06",
+      "title": "Story Courses 5/6 Course Performance — demande de Romain 16/11 : annoncer les courses + vidéos qui donnent envie",
+      "publishAt": "2026-11-16T13:06:00+01:00",
+      "status": "scheduled",
+      "instagram": {
+        "story": true,
+        "caption": "[story story-courses-1611-06] Story Courses 5/6 Course Performance",
+        "imageUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-16/stories-courses/05-course-performance.jpg",
+        "imageUrls": []
+      },
+      "facebook": false
+    },
+    {
+      "id": "story-courses-1611-07",
+      "title": "Story Courses 6/6 Prochaines courses (28/11, 9/12, 10/12) — demande de Romain 16/11 : annoncer les courses + vidéos qui donnent envie",
+      "publishAt": "2026-11-16T13:07:00+01:00",
+      "status": "scheduled",
+      "instagram": {
+        "story": true,
+        "caption": "[story story-courses-1611-07] Story Courses 6/6 Prochaines courses (28/11, 9/12, 10/12)",
+        "imageUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-16/stories-courses/06-prochaines-courses.jpg",
+        "imageUrls": []
+      },
+      "facebook": false
+    },
+    {
+      "id": "story-courses-1611-08",
+      "title": "Story vidéo « Ton baquet t'attend » — demande de Romain 16/11 : annoncer les courses + vidéos qui donnent envie",
+      "publishAt": "2026-11-16T13:08:00+01:00",
+      "status": "scheduled",
+      "instagram": {
+        "story": true,
+        "caption": "[story story-courses-1611-08] Story vidéo « Ton baquet t'attend »",
+        "videoUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-16/stories-courses/3-ton-baquet.mp4",
+        "imageUrls": []
+      },
+      "facebook": false
+    },
+    {
+      "id": "story-courses-1611-09",
+      "title": "Story vidéo « Jeudi 10 décembre, c'est la Race Night » — demande de Romain 16/11 : annoncer les courses + vidéos qui donnent envie",
+      "publishAt": "2026-11-16T13:09:00+01:00",
+      "status": "scheduled",
+      "instagram": {
+        "story": true,
+        "caption": "[story story-courses-1611-09] Story vidéo « Jeudi 10 décembre, c'est la Race Night »",
+        "videoUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-16/stories-courses/2-race-night.mp4",
+        "imageUrls": []
+      },
+      "facebook": false
     }
   ]
 }
