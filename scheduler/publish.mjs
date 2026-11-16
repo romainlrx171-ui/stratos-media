@@ -55,9 +55,10 @@ function extras(ig, altText) {
 }
 
 async function createContainer(ig) {
-  // Story vidéo : instagram.story = true (pas de légende, pas de sticker par l'API).
+  // Story : instagram.story = true, avec videoUrl OU imageUrl (JPG) ; pas de légende, pas de sticker par l'API.
   if (ig.story) {
-    const { id } = await api("POST", `${IG}/media`, { media_type: "STORIES", video_url: ig.videoUrl });
+    const media = ig.videoUrl ? { video_url: ig.videoUrl } : { image_url: ig.imageUrl };
+    const { id } = await api("POST", `${IG}/media`, { media_type: "STORIES", ...media });
     await waitReady(id);
     return id;
   }
