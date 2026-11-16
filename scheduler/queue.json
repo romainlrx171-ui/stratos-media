@@ -852,6 +852,26 @@
       "mediaId": "18154639258556679",
       "permalink": "https://www.instagram.com/stories/stratos.academie/4031613072275356343",
       "publishedAt": "2026-11-16T10:43:04.121Z"
+    },
+    {
+      "id": "carrousel-debutant-vs-pilote",
+      "title": "Carrousel « Débutant vs Pilote » sans CTA (9 slides) — droits photos confirmés par Romain le 16/11",
+      "publishAt": "2026-11-20T12:00:00+01:00",
+      "status": "scheduled",
+      "instagram": {
+        "imageUrls": [
+          "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-20/carrousel-debutant-vs-pilote/slide-01.jpg",
+          "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-20/carrousel-debutant-vs-pilote/slide-02.jpg",
+          "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-20/carrousel-debutant-vs-pilote/slide-03.jpg",
+          "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-20/carrousel-debutant-vs-pilote/slide-04.jpg",
+          "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-20/carrousel-debutant-vs-pilote/slide-05.jpg",
+          "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-20/carrousel-debutant-vs-pilote/slide-06.jpg",
+          "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-20/carrousel-debutant-vs-pilote/slide-07.jpg",
+          "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-20/carrousel-debutant-vs-pilote/slide-08.jpg",
+          "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-20/carrousel-debutant-vs-pilote/slide-09.jpg"
+        ],
+        "caption": "Débutant vs pilote : même voiture, même circuit, pas le même chrono.\n\nTout se joue sur 6 détails : le regard, le freinage, la position, les mains, la trajectoire et la sortie de virage. Rien de magique, tout se travaille.\n\nCommence par le regard. Au freinage, tes yeux sont déjà sur la corde. Le conseil de Romain : « Regarde loin. Ta voiture va là où tu regardes. »\n\nDébutant ou confirmé, chez Stratos Académie on travaille chacun de ces aspects avec toi, dès 10 ans.\n\nEnregistre ce post pour ta prochaine séance.\nStratos Académie, Saint-Germain-en-Laye (Yvelines), à 15 min à pied du RER A.\n\n#simulateurdepilotage #simracing #pilotage #monza #saintgermainenlaye #yvelines"
+      }
     }
   ]
 }
