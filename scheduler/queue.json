@@ -912,6 +912,50 @@
         "id": "1024824487379881_122127971277161787",
         "publishedAt": "2026-11-20T12:45:38.254Z"
       }
+    },
+    {
+      "id": "tk2ig-race-night",
+      "title": "Reel « Jeudi 10 décembre, c'est la Race Night » (vu sur TikTok : 708 vues)",
+      "publishAt": "2026-11-24T18:00:00+01:00",
+      "status": "scheduled",
+      "instagram": {
+        "caption": "Jeudi 10 décembre, c'est la Race Night : un nouveau circuit en GT3, une grille entre adultes passionnés, un podium. Ta place se réserve en bio.\n\n#simracing #racenight #saintgermainenlaye",
+        "videoUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-23-tiktok-vers-instagram/2-race-night.mp4",
+        "thumbOffset": 300
+      }
+    },
+    {
+      "id": "tk2ig-baquet",
+      "title": "Reel « Ton baquet t'attend » (TikTok : 684 vues)",
+      "publishAt": "2026-11-25T18:00:00+01:00",
+      "status": "scheduled",
+      "instagram": {
+        "caption": "Ton baquet t'attend. Trois simulateurs pro, volant direct drive, pédalier load cell, à Saint-Germain-en-Laye. Tu viens quand ?\n\n#simracing #pilotage #saintgermainenlaye",
+        "videoUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-23-tiktok-vers-instagram/3-ton-baquet.mp4",
+        "thumbOffset": 300
+      }
+    },
+    {
+      "id": "tk2ig-lequel-est-le-pro",
+      "title": "Reel quiz « Lequel est le pro ? », version Instagram plein largeur (test)",
+      "publishAt": "2026-11-26T18:00:00+01:00",
+      "status": "scheduled",
+      "instagram": {
+        "caption": "Même voiture, même virage. Lequel est le pilote pro, A ou B ? Réponds en commentaire avant la fin : la réponse est dans la vidéo.\n\n#simracing #pilotage #iracing",
+        "videoUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-23-tiktok-vers-instagram/4-lequel-est-le-pro-ig.mp4",
+        "thumbOffset": 300
+      }
+    },
+    {
+      "id": "tk2ig-premier-tour",
+      "title": "Reel « Ton premier tour commence ici » (TikTok : 692 vues)",
+      "publishAt": "2026-11-28T12:00:00+01:00",
+      "status": "scheduled",
+      "instagram": {
+        "caption": "Ton premier tour commence ici. Pas besoin de savoir piloter : on t'explique tout avant de partir, et tu roules dès la première minute.\n\n#simracing #pilotage #saintgermainenlaye",
+        "videoUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-23-tiktok-vers-instagram/1-ton-premier-tour.mp4",
+        "thumbOffset": 300
+      }
     }
   ]
 }
