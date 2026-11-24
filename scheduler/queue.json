@@ -917,11 +917,19 @@
       "id": "tk2ig-race-night",
       "title": "Reel « Jeudi 10 décembre, c'est la Race Night » (vu sur TikTok : 708 vues)",
       "publishAt": "2026-11-24T18:00:00+01:00",
-      "status": "scheduled",
+      "status": "published",
       "instagram": {
         "caption": "Jeudi 10 décembre, c'est la Race Night : un nouveau circuit en GT3, une grille entre adultes passionnés, un podium. Ta place se réserve en bio.\n\n#simracing #racenight #saintgermainenlaye",
         "videoUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-23-tiktok-vers-instagram/2-race-night.mp4",
         "thumbOffset": 300
+      },
+      "mediaId": "18092396003284380",
+      "permalink": "https://www.instagram.com/reel/DgIf1VYhDim/",
+      "publishedAt": "2026-11-24T17:31:59.423Z",
+      "facebook": {
+        "status": "published",
+        "id": "4565844900228283",
+        "publishedAt": "2026-11-24T17:32:08.280Z"
       }
     },
     {
