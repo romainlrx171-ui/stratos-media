@@ -936,11 +936,19 @@
       "id": "tk2ig-baquet",
       "title": "Reel « Ton baquet t'attend » (TikTok : 684 vues)",
       "publishAt": "2026-11-25T18:00:00+01:00",
-      "status": "scheduled",
+      "status": "published",
       "instagram": {
         "caption": "Ton baquet t'attend. Trois simulateurs pro, volant direct drive, pédalier load cell, à Saint-Germain-en-Laye. Tu viens quand ?\n\n#simracing #pilotage #saintgermainenlaye",
         "videoUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-23-tiktok-vers-instagram/3-ton-baquet.mp4",
         "thumbOffset": 300
+      },
+      "mediaId": "18158729641457751",
+      "permalink": "https://www.instagram.com/reel/DgLVnR8BTWM/",
+      "publishedAt": "2026-11-25T20:00:22.546Z",
+      "facebook": {
+        "status": "published",
+        "id": "1133391232724155",
+        "publishedAt": "2026-11-25T20:00:30.571Z"
       }
     },
     {
