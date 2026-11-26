@@ -955,11 +955,19 @@
       "id": "tk2ig-lequel-est-le-pro",
       "title": "Reel quiz « Lequel est le pro ? », version Instagram plein largeur (test)",
       "publishAt": "2026-11-26T18:00:00+01:00",
-      "status": "scheduled",
+      "status": "published",
       "instagram": {
         "caption": "Même voiture, même virage. Lequel est le pilote pro, A ou B ? Réponds en commentaire avant la fin : la réponse est dans la vidéo.\n\n#simracing #pilotage #iracing",
         "videoUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-23-tiktok-vers-instagram/4-lequel-est-le-pro-ig.mp4",
         "thumbOffset": 300
+      },
+      "mediaId": "18048302306834459",
+      "permalink": "https://www.instagram.com/reel/DgN7AluhlJ8/",
+      "publishedAt": "2026-11-26T20:05:37.911Z",
+      "facebook": {
+        "status": "published",
+        "id": "1815197649715013",
+        "publishedAt": "2026-11-26T20:05:43.040Z"
       }
     },
     {
