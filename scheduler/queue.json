@@ -974,11 +974,19 @@
       "id": "tk2ig-premier-tour",
       "title": "Reel « Ton premier tour commence ici » (TikTok : 692 vues)",
       "publishAt": "2026-11-28T12:00:00+01:00",
-      "status": "scheduled",
+      "status": "published",
       "instagram": {
         "caption": "Ton premier tour commence ici. Pas besoin de savoir piloter : on t'explique tout avant de partir, et tu roules dès la première minute.\n\n#simracing #pilotage #saintgermainenlaye",
         "videoUrl": "https://raw.githubusercontent.com/romainlrx171-ui/stratos-media/main/posts/2026-11-23-tiktok-vers-instagram/1-ton-premier-tour.mp4",
         "thumbOffset": 300
+      },
+      "mediaId": "18393574798237126",
+      "permalink": "https://www.instagram.com/reel/DgSIZCGBiHr/",
+      "publishedAt": "2026-11-28T11:19:27.585Z",
+      "facebook": {
+        "status": "published",
+        "id": "1173825802045331",
+        "publishedAt": "2026-11-28T11:19:35.386Z"
       }
     }
   ]
